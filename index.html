@@ -21,7 +21,7 @@
     <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.ico">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -65,6 +65,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-代码管理中常用的git命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/26/代码管理中常用的git命令/" class="article-date">
+  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">2018-05-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先新建远程仓库<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/projectname.git（下载远程代码到本地）<br>git init (初始化本地仓库)<br>git add .(将本地文件加入缓存区)<br>git commit -m “修改的内容说明” （说明性内容）<br>git push origin master （push文件到仓库中）</p>
+<p>之后每次在提交之前都需要先pull一下（先更新，再提交）<br>git pull (拉取远程代码，使本地跟远程保持一致)<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/26/代码管理中常用的git命令/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjhmpdbpx000560s65xczwlei" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-我的云笔记整理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/25/我的云笔记整理/" class="article-date">
+  <time datetime="2018-05-25T15:36:19.000Z" itemprop="datePublished">2018-05-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/我的云笔记整理/">我的云笔记整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/25/我的云笔记整理/" data-id="cjhmpdbpr000260s6nrczh133" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-我的第一篇博文" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/25/我的第一篇博文/" class="article-date">
@@ -72,7 +162,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
   </div>
 
   </div>
@@ -92,14 +182,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>参考别人的博客使用<strong>hexo</strong>完成建站工作：<a href="https://blog.waydrow.com/2015/08/14/%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">原文链接</a><br>MAC版GitHub配置SSH：<a href="https://blog.csdn.net/ShuTongIt/article/details/78902788" target="_blank" rel="noopener">原文链接</a></p>
-<p></p><h4>博客支持html,所以需要特殊效果的时候直接使用html标签元素吧。</h4><br>如果想生成的文件默认带categories，那么打开根目录下\scaffolds\post.md新增一行categories :就修改好了模板文件。<p></p>
-<ul>另外备注一下修改主题样式中的点：<br>    <li>图片资源在themes/source/css/images文件夹下，对应的样式是themes/source/css/_partial/header.styl中的#banner，可修改背景图片的位置</li><br>    <li>导航栏文字内容在themes/_config.yml文件中，导航栏样式对应themes/source/css/_partial/header.styl中的$nav-link</li><br></ul>
-
-
+<p></p><h4>博客支持html,所以需要特殊效果的时候直接使用html标签元素吧。</h4><br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/25/我的第一篇博文/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjhm4adtb000138s6eu3rc4cu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjhmpdbpn000160s6gys3q3k0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -135,18 +227,16 @@
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a><br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/25/hello-world/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjhm4adt6000038s6qctw6i35" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjhmpdbph000060s63808en4e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -166,7 +256,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li></ul>
     </div>
   </div>
 
@@ -176,7 +266,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
     </div>
   </div>
 
@@ -186,7 +276,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
     </div>
   </div>
 
@@ -206,6 +296,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/25/我的云笔记整理/">我的云笔记整理</a>
+          </li>
         
           <li>
             <a href="/2018/05/25/我的第一篇博文/">我的第一篇博文</a>
