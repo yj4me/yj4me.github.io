@@ -5,20 +5,18 @@
   
 
   
-  <title>代码管理中常用的git命令 | 学习笔记</title>
+  <title>Category: vue | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先新建远程仓库git clone git@github.com:username/projectname.git（下载远程代码到本地）git init (初始化本地仓库)git add .(将本地文件加入缓存区)git commit -m “修改的内容说明” （说明性内容）git push origin master （push文件到仓库中） 之后每次在提交之前都需要先pull一下（先更新，再提">
-<meta name="keywords" content="git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="代码管理中常用的git命令">
-<meta property="og:url" content="http://yoursite.com/2018/05/26/代码管理中常用的git命令/index.html">
+  <meta name="description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="http://yoursite.com/categories/vue/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="首先新建远程仓库git clone git@github.com:username/projectname.git（下载远程代码到本地）git init (初始化本地仓库)git add .(将本地文件加入缓存区)git commit -m “修改的内容说明” （说明性内容）git push origin master （push文件到仓库中） 之后每次在提交之前都需要先pull一下（先更新，再提">
+<meta property="og:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-26T01:56:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="代码管理中常用的git命令">
-<meta name="twitter:description" content="首先新建远程仓库git clone git@github.com:username/projectname.git（下载远程代码到本地）git init (初始化本地仓库)git add .(将本地文件加入缓存区)git commit -m “修改的内容说明” （说明性内容）git push origin master （push文件到仓库中） 之后每次在提交之前都需要先pull一下（先更新，再提">
+<meta name="twitter:title" content="学习笔记">
+<meta name="twitter:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
   
     <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -65,73 +63,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-代码管理中常用的git命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/26/代码管理中常用的git命令/" class="article-date">
-  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">2018-05-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      代码管理中常用的git命令
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/30/vue中对各个变量的理解/" class="archive-article-date">
+  <time datetime="2018-05-30T00:54:50.000Z" itemprop="datePublished">May 30</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/30/vue中对各个变量的理解/">vue中对各个对象的理解</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先新建远程仓库<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/projectname.git（下载远程代码到本地）<br>git init (初始化本地仓库)<br>git add .(将本地文件加入缓存区)<br>git commit -m “修改的内容说明” （说明性内容）<br>git push origin master （push文件到仓库中）</p>
-<p>之后每次在提交之前都需要先pull一下（先更新，再提交）<br>git pull (拉取远程代码，使本地跟远程保持一致)<br><a id="more"></a><br>git remote add origin   <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/projectname.git（本地仓库链接远程仓库）</p>
-<p>git checkout branch-name (切换到某分支上进行开发)<br>一个模块完成后，把代码提交到线上。执行<br>git add .<br>git commit -m ‘ajax’<br>git push  //提交代码到分支<br>git checkout master  //切换到主分支<br>git merge branch-name  //执行合并<br>git push    //将主分支代码提交</p>
-<p>添加/修改多个文件夹/文件：<br>git add .<br>git commit -m “add screenShorts”（说明性内容）<br>git push -f origin master</p>
-<p>在readme中添加截图效果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![image](https://....)	里面填入项目中截图的绝对地址</span><br></pre></td></tr></table></figure></p>
-<p>屏蔽文件：可直接创建.gitignore文件，在里面写入需要屏蔽的文件(最常见的Mac系统自带的.DS_Store文件)<br>如果.DS_Store文件已被不小心上传至github，我们用以下方法可以很好的解决这个问题：<br>git rm -r –cached some-directory<br>git commit -m ‘Remove the now ignored directory “some-directory”‘<br>git push origin master</p>
-<p>git的安装：<br>通过brew安装git,命令如下:brew install git<br>检测git是否安装成功：git –version<br>显示当前git的路径：which git（一般在/usr/local/Cellar/git）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjhsi54vt000a99s65g3nemsk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-    </footer>
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/25/我的云笔记整理/" class="archive-article-date">
+  <time datetime="2018-05-25T15:36:19.000Z" itemprop="datePublished">May 25</time>
+</a>
+      
   
-    <a href="/2018/05/28/HTTP图解读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          HTTP图解读书笔记
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/25/我的云笔记整理/">我的云笔记整理</a>
+    </h1>
   
-  
-    <a href="/2018/05/25/我的云笔记整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">我的云笔记整理</div>
-    </a>
-  
-</nav>
 
-  
+    </header>
+  </div>
 </article>
+  
+  
+    </div></section>
+  
+
 
 </section>
         
