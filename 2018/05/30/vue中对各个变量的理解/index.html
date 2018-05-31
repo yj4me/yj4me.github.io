@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="data 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面有深入响应式原理里面具体的介绍)。props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。computed 计算属性用来处理">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-30T01:34:11.000Z">
+<meta property="og:updated_time" content="2018-05-31T00:08:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中对各个对象的理解">
 <meta name="twitter:description" content="data 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面有深入响应式原理里面具体的介绍)。props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。computed 计算属性用来处理">
@@ -92,7 +92,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>data</strong> 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面有深入响应式原理里面具体的介绍)。<br><strong>props</strong> 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，<br>对象允许配置高级选项，如类型检测、自定义校验和设置默认值。<br><strong>computed</strong> 计算属性用来处理复杂的逻辑运算，是在HTML DOM加载后马上执行的。只有在相关的数据发生变化时才会改变要计算的属性，当相关数据没有变化时，它会读取缓存。</p>
-<p><strong>methods</strong>则必须要有一定的触发条件才能执行，如点击事件；<br><strong>watch</strong>用于观察Vue实例上的数据变动。对应一个对象，键是观察表达式，值是对应回调。值也可以是方法名，或者是对象，包含选项。所以执行回调函数的时候，watch是首选<br>所以他们的执行顺序为：默认加载的时候先computed再watch，不执行methods；等触发某一事件后，则是：先methods再watch。</p>
+<p><strong>methods</strong>则必须要有一定的触发条件才能执行，如点击事件；<br><strong>watch</strong>用于观察Vue实例上的数据变动。对应一个对象，键是观察表达式，值是对应回调。值也可以是方法名，或者是对象，包含选项。所以执行回调函数的时候，watch是首选<br>所以他们的执行顺序为：默认加载的时候先computed再watch，不执行methods；等触发某一事件后，则是：先methods再watch。<br>watch的深度监听：数组，对象，数组对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> watch:&#123;</span><br><span class="line">    <span class="string">'city'</span>:&#123;</span><br><span class="line">        handler:<span class="keyword">function</span>(newValue,oldValue)&#123;</span><br><span class="line">            console.log(newValue)</span><br><span class="line">        &#125;,</span><br><span class="line">        deep:<span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>采用上述方法，只有数组监听不到,由于 JavaScript 的限制，Vue 不能检测以下变动的数组：<br>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue<br>当你修改数组的长度时，例如：vm.items.length = newLength<br>为了解决第一类问题，以下两种方式都可以实现和 vm.items[indexOfItem] = newValue 相同的效果，同时也将触发状态更新：<br>// Vue.set<br>Vue.set(vm.items, indexOfItem, newValue)<br>// Array.prototype.splice<br>vm.items.splice(indexOfItem, 1, newValue)</p>
 <p><strong>Vue 虚拟dom</strong><br>vdom因为是纯粹的JS对象，所以操作它会很高效，但是vdom的变更最终会转换成DOM操作.<br>Vue的diff算法是基于snabbdom改造过来的,Vue的diff算法是仅在同级的vnode间做diff，递归地进行同级vnode的diff，最终实现整个DOM树的更新。<br>Vue不断对vnode进行处理同时移动指针直到其中任意一对起点和终点相遇。处理过的节点Vue会在oldVdom和newVdom中同时将它标记为已处理</p>
 
       
@@ -137,7 +138,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js在项目中的应用/">js在项目中的应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级程序设计/">高级程序设计</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/js在项目中的应用/">js在项目中的应用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级程序设计/">高级程序设计</a></li></ul>
     </div>
   </div>
 
