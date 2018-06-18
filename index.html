@@ -65,6 +65,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用element-ui进行样式修改" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/18/使用element-ui进行样式修改/" class="article-date">
+  <time datetime="2018-06-18T00:17:14.000Z" itemprop="datePublished">2018-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/18/使用element-ui进行样式修改/">使用element-ui进行样式修改</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。<br>1、使用日期选择器控件，但是要把图标放到输入框的后面.<br><span><img src="/img/calandar.png" alt="image"></span><br>对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了<br>第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。<br>只需要给要移动的子元素添加属性order:&lt;integer>即可，我这里添加的是order:5,就把图标放到最后面去了。<br>参考文章: <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程 语法篇4.1 order属性</a></p>
+<p>2、表格中修改tooltip的样式<br>查看文档的时候，只发现可以给table添加属性：tooltip effect 属性    String    dark/light<br>light样式是白色背景带黑色边框，dark是默认样式，黑色背景白色文字<br>这两种效果并不符合设计图中的样式，所以要进行修改。但查看元素的时候一直定位不到tooltip。<br><strong>最终搜索到的解决办法：开发者工具有个Sources页，里面有暂停功能，快捷键是F8，在打开开发者工具的后，先把tooltip弹出来，再按F8暂停，tooltip就不会消失了</strong><br>这时候就可以定位到元素，进行样式重写了。</p>
+<p>3、在自己的组件中style添加了scoped,在里面再去重写element-ui中元素的样式不起作用。<br><strong>深选择器：如果想对设置了scoped的子组件里的元素进行控制可以使用’&gt;&gt;&gt;’或者’deep’</strong><br>一些预处理程序例如sass不能解析&gt;&gt;&gt;属性，这种情况下可以用deep，它是&gt;&gt;&gt;的别名，工作原理相同。<br>参考文章:<a href="https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements" target="_blank" rel="noopener">Deep Selectors</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/" data-id="cjijlhgkr00054rs6q5ixjwiu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-element-ui/">vue element-ui</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-html标签元素" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/30/html标签元素/" class="article-date">
@@ -100,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/html标签元素/" data-id="cjhttlhr60004q2s67rc2om9d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/html标签元素/" data-id="cjijlhgks00064rs6argjszfi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -146,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjhttlhr90006q2s68nk6v4r8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjijlhgkv000a4rs6rkoiqpkb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -189,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjhttlhr80005q2s6227kbpfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjijlhgkp00044rs60lv58h5k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -236,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjhttlhrl000hq2s68grzgmer" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjijlhgl4000l4rs6l5akebwh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
@@ -279,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/HTTP图解读书笔记/" data-id="cjhttlhqm0000q2s6ad6vvyxc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/HTTP图解读书笔记/" data-id="cjijlhgkg00004rs60n4xhjbo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -327,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjhttlhrc000aq2s6ut7cue0v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjijlhgkx000b4rs6zhw2tmqp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -357,7 +402,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/25/我的云笔记整理/">我的云笔记整理</a>
+      <a class="article-title" href="/2018/05/25/我的云笔记整理/">vue项目开发步骤及遇到的问题</a>
     </h1>
   
 
@@ -374,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/我的云笔记整理/" data-id="cjhttlhrf000bq2s670t9mcjq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/我的云笔记整理/" data-id="cjijlhgkz000f4rs6al64m05f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -422,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjhttlhrh000fq2s67473mvnq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjijlhgl1000h4rs6sgjuya9z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -467,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjhttlhqz0001q2s63bj3incn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjijlhgkk00014rs6wnawzfdt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -497,7 +542,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-element-ui/">vue element-ui</a></li></ul>
     </div>
   </div>
 
@@ -507,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue-element-ui/" style="font-size: 10px;">vue element-ui</a>
     </div>
   </div>
 
@@ -516,7 +561,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -527,6 +572,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/18/使用element-ui进行样式修改/">使用element-ui进行样式修改</a>
+          </li>
         
           <li>
             <a href="/2018/05/30/html标签元素/">html标签元素</a>
@@ -542,10 +591,6 @@
         
           <li>
             <a href="/2018/05/28/第21章Ajax-Comet/">第21章Ajax&amp;Comet</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/28/HTTP图解读书笔记/">HTTP图解读书笔记</a>
           </li>
         
       </ul>

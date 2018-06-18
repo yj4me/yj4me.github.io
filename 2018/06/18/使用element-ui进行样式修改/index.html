@@ -5,18 +5,22 @@
   
 
   
-  <title>Category: 高级程序设计 | 学习笔记</title>
+  <title>使用element-ui进行样式修改 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/categories/高级程序设计/index.html">
+  <meta name="description" content="项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。1、使用日期选择器控件，但是要把图标放到输入框的后面.对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。只需要给要移动的子元素添加属性or">
+<meta name="keywords" content="vue element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用element-ui进行样式修改">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta property="og:description" content="项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。1、使用日期选择器控件，但是要把图标放到输入框的后面.对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。只需要给要移动的子元素添加属性or">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/calandar.png">
+<meta property="og:updated_time" content="2018-06-18T01:41:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记">
-<meta name="twitter:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta name="twitter:title" content="使用element-ui进行样式修改">
+<meta name="twitter:description" content="项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。1、使用日期选择器控件，但是要把图标放到输入框的后面.对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。只需要给要移动的子元素添加属性or">
+<meta name="twitter:image" content="http://yoursite.com/img/calandar.png">
   
     <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -63,40 +67,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/28/第21章Ajax-Comet/" class="archive-article-date">
-  <time datetime="2018-05-28T09:05:30.000Z" itemprop="datePublished">May 28</time>
+        <section id="main"><article id="post-使用element-ui进行样式修改" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/18/使用element-ui进行样式修改/" class="article-date">
+  <time datetime="2018-06-18T00:17:14.000Z" itemprop="datePublished">2018-06-18</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/28/第21章Ajax-Comet/">第21章Ajax&amp;Comet</a>
+    <h1 class="article-title" itemprop="name">
+      使用element-ui进行样式修改
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。<br>1、使用日期选择器控件，但是要把图标放到输入框的后面.<br><span><img src="/img/calandar.png" alt="image"></span><br>对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了<br>第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。<br>只需要给要移动的子元素添加属性order:&lt;integer>即可，我这里添加的是order:5,就把图标放到最后面去了。<br>参考文章: <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程 语法篇4.1 order属性</a></p>
+<p>2、表格中修改tooltip的样式<br>查看文档的时候，只发现可以给table添加属性：tooltip effect 属性    String    dark/light<br>light样式是白色背景带黑色边框，dark是默认样式，黑色背景白色文字<br>这两种效果并不符合设计图中的样式，所以要进行修改。但查看元素的时候一直定位不到tooltip。<br><strong>最终搜索到的解决办法：开发者工具有个Sources页，里面有暂停功能，快捷键是F8，在打开开发者工具的后，先把tooltip弹出来，再按F8暂停，tooltip就不会消失了</strong><br>这时候就可以定位到元素，进行样式重写了。</p>
+<p>3、在自己的组件中style添加了scoped,在里面再去重写element-ui中元素的样式不起作用。<br><strong>深选择器：如果想对设置了scoped的子组件里的元素进行控制可以使用’&gt;&gt;&gt;’或者’deep’</strong><br>一些预处理程序例如sass不能解析&gt;&gt;&gt;属性，这种情况下可以用deep，它是&gt;&gt;&gt;的别名，工作原理相同。<br>参考文章:<a href="https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements" target="_blank" rel="noopener">Deep Selectors</a></p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/" data-id="cjijlhgkr00054rs6q5ixjwiu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-element-ui/">vue element-ui</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/30/html标签元素/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">html标签元素</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
