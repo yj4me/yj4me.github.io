@@ -5,18 +5,20 @@
   
 
   
-  <title>Category: 前端笔记 | 学习笔记</title>
+  <title>vue项目中如何使用less | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://yoursite.com/categories/前端笔记/index.html">
+  <meta name="description" content="1、首选，安装 less 和 less-loader    npm install less less-loader –save-dev2、在build/webpack.base.conf.js文件中的loader/rules中添加配置1234&amp;#123;	test: /\.less$/,	loader: &quot;style-loader!css-loader!less-loader&quot;,&amp;#125; 3">
+<meta name="keywords" content="less">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue项目中如何使用less">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/vue项目中如何使用less/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta property="og:description" content="1、首选，安装 less 和 less-loader    npm install less less-loader –save-dev2、在build/webpack.base.conf.js文件中的loader/rules中添加配置1234&amp;#123;	test: /\.less$/,	loader: &quot;style-loader!css-loader!less-loader&quot;,&amp;#125; 3">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-19T12:10:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记">
-<meta name="twitter:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta name="twitter:title" content="vue项目中如何使用less">
+<meta name="twitter:description" content="1、首选，安装 less 和 less-loader    npm install less less-loader –save-dev2、在build/webpack.base.conf.js文件中的loader/rules中添加配置1234&amp;#123;	test: /\.less$/,	loader: &quot;style-loader!css-loader!less-loader&quot;,&amp;#125; 3">
   
     <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -63,78 +65,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/28/HTTP图解读书笔记/" class="archive-article-date">
-  <time datetime="2018-05-28T07:12:33.000Z" itemprop="datePublished">May 28</time>
+        <section id="main"><article id="post-vue项目中如何使用less" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/19/vue项目中如何使用less/" class="article-date">
+  <time datetime="2018-06-19T12:04:33.000Z" itemprop="datePublished">2018-06-19</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/28/HTTP图解读书笔记/">HTTP图解读书笔记</a>
+    <h1 class="article-title" itemprop="name">
+      vue项目中如何使用less
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/26/代码管理中常用的git命令/" class="archive-article-date">
-  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">May 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
-    </h1>
-  
+        <p>1、首选，安装 less 和 less-loader    npm install less less-loader –save-dev<br>2、在build/webpack.base.conf.js文件中的loader/rules中添加配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="built_in">test</span>: /\.less$/,</span><br><span class="line">	loader: <span class="string">"style-loader!css-loader!less-loader"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、最后，在代码中的 style 标签中 加上 lang=”less” 属性即可</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/25/我的第一篇博文/" class="archive-article-date">
-  <time datetime="2018-05-25T08:42:24.000Z" itemprop="datePublished">May 25</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/25/我的第一篇博文/">我的第一篇博文</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/19/vue项目中如何使用less/" data-id="cju3ej19b000bq9o4apdnantk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/less/">less</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/18/使用element-ui进行样式修改/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用element-ui进行样式修改</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
