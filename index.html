@@ -65,6 +65,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-面试基础知识总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/11/面试基础知识总结/" class="article-date">
+  <time datetime="2019-06-11T01:15:56.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/11/面试基础知识总结/">面试基础知识总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/11/面试基础知识总结/" data-id="cjwr46q4d000xu6vzis6bwol1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js基础" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/05/19/js基础/" class="article-date">
@@ -87,12 +123,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、</p>
+        <p>一、创建对象的几种方式：<br>1、创建单个对象（Object 构造函数或对象字面量），缺点：创建很多对象,会产生大量的重复代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//Object 构造函数</span><br><span class="line">var person = new Object();</span><br><span class="line">person.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">person.age = 29;</span><br><span class="line"></span><br><span class="line">//对象字面量</span><br><span class="line">var person = &#123;</span><br><span class="line">    name: <span class="string">"Nicholas"</span>,</span><br><span class="line">    age: 29</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>2、工厂模式（解决创建很多对象,会产生大量的重复代码的问题）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> createPerson(name, age)&#123;</span><br><span class="line">	var o = new Object();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	<span class="built_in">return</span> o; </span><br><span class="line">&#125;</span><br><span class="line">var person1 = createPerson(<span class="string">"Nicholas"</span>, 29);</span><br><span class="line">var person2 = createPerson(<span class="string">"Nicholas"</span>, 29);</span><br></pre></td></tr></table></figure></p>
+<p>3、构造函数模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name, age)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age; </span><br><span class="line">&#125;</span><br><span class="line">var person1 = new Person(<span class="string">"Nicholas"</span>, 29);</span><br><span class="line">var person2 = new Person(<span class="string">"Nicholas"</span>, 29);</span><br></pre></td></tr></table></figure></p>
+<p>4、Object.create，使用现有的对象来提供新创建的对象的<strong>proto</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/19/js基础/" data-id="cjvud3ag00007koo4uq9pgicw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/19/js基础/" data-id="cjwr46q3y000au6vzc0nwc6to" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -136,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/15/element-ui在项目中的使用/" data-id="cjvud3afk0002koo450uv50jq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/15/element-ui在项目中的使用/" data-id="cjwr46q3e0000u6vz0qfd6y4n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table表格/">table表格</a></li></ul>
@@ -180,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/19/vue项目中如何使用less/" data-id="cjvud3ag2000bkoo4s9upuso5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/19/vue项目中如何使用less/" data-id="cjwr46q43000fu6vzdsz1esav" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/less/">less</a></li></ul>
@@ -225,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/" data-id="cjvud3agd000ikoo4r7k51ftb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/" data-id="cjwr46q48000nu6vzz15ksha5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/element-ui/">element-ui</a></li></ul>
@@ -272,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/html标签元素/" data-id="cjvud3afy0006koo4961slabg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/html标签元素/" data-id="cjwr46q3o0005u6vzun8le7th" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
@@ -318,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjvud3ag5000ckoo4uunhb7qs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjwr46q41000bu6vznz9mqnnp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -361,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjvud3afp0005koo435i0ixxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjwr46q3w0006u6vz1yitq545" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
@@ -408,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjvud3agm000skoo4s3azo3zy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjwr46q4a000ru6vzvxea0unt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
@@ -451,58 +490,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/HTTP图解读书笔记/" data-id="cjvud3afi0001koo4mwq9a4yc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/28/HTTP图解读书笔记/" data-id="cjwr46q3i0001u6vz5leycx2p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-代码管理中常用的git命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/26/代码管理中常用的git命令/" class="article-date">
-  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">2018-05-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端笔记/">前端笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先新建远程仓库<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/projectname.git（下载远程代码到本地）<br>git init (初始化本地仓库)<br>git add .(将本地文件加入缓存区)<br>git commit -m “修改的内容说明” （说明性内容）<br>git push origin master （push文件到仓库中）</p>
-<p>之后每次在提交之前都需要先pull一下（先更新，再提交）<br>git pull (拉取远程代码，使本地跟远程保持一致)<br>
-        
-          <p class="article-more-link">
-            <a href="/2018/05/26/代码管理中常用的git命令/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjvud3ag8000gkoo4p69n7gfg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -555,7 +546,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -566,6 +557,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/11/面试基础知识总结/">面试基础知识总结</a>
+          </li>
         
           <li>
             <a href="/2019/05/19/js基础/">js基础</a>
@@ -581,10 +576,6 @@
         
           <li>
             <a href="/2018/06/18/使用element-ui进行样式修改/">使用element-ui进行样式修改</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/30/html标签元素/">html标签元素</a>
           </li>
         
       </ul>
