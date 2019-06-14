@@ -5,20 +5,18 @@
   
 
   
-  <title>vue中对各个对象的理解 | 学习笔记</title>
+  <title>Category: git | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="data 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面深入响应式原理里面具体的介绍)。props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。computed 计算属性用来处理复">
-<meta name="keywords" content="vue">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue中对各个对象的理解">
-<meta property="og:url" content="http://yoursite.com/2018/05/30/vue中对各个变量的理解/index.html">
+  <meta name="description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="http://yoursite.com/categories/git/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="data 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面深入响应式原理里面具体的介绍)。props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。computed 计算属性用来处理复">
+<meta property="og:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-14T01:09:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue中对各个对象的理解">
-<meta name="twitter:description" content="data 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面深入响应式原理里面具体的介绍)。props 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义校验和设置默认值。computed 计算属性用来处理复">
+<meta name="twitter:title" content="学习笔记">
+<meta name="twitter:description" content="学习过程中的知识点纪录。零零散散，自成方圆。">
   
     <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -65,70 +63,40 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vue中对各个变量的理解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/30/vue中对各个变量的理解/" class="article-date">
-  <time datetime="2018-05-30T00:54:50.000Z" itemprop="datePublished">2018-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      vue中对各个对象的理解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/05/26/代码管理中常用的git命令/" class="archive-article-date">
+  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">May 26</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>data</strong> 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面<br><a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">深入响应式原理</a>里面具体的介绍)。<br><strong>props</strong> 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，<br>对象允许配置高级选项，如类型检测、自定义校验和设置默认值。<br><strong>computed</strong> 计算属性用来处理复杂的逻辑运算，是在HTML DOM加载后马上执行的。只有在相关的数据发生变化时才会改变要计算的属性，当相关数据没有变化时，它会读取缓存。</p>
-<p><strong>methods</strong>则必须要有一定的触发条件才能执行，如点击事件；<br><strong>watch</strong>用于观察Vue实例上的数据变动。对应一个对象，键是观察表达式，值是对应回调。值也可以是方法名，或者是对象，包含选项。所以执行回调函数的时候，watch是首选<br>所以他们的执行顺序为：默认加载的时候先computed再watch，不执行methods；等触发某一事件后，则是：先methods再watch。<br>watch的深度监听：数组，对象，数组对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> watch:&#123;</span><br><span class="line">    <span class="string">'city'</span>:&#123;</span><br><span class="line">        handler:<span class="keyword">function</span>(newValue,oldValue)&#123;</span><br><span class="line">            console.log(newValue)</span><br><span class="line">        &#125;,</span><br><span class="line">        deep:<span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>采用上述方法，只有数组监听不到,由于 JavaScript 的限制，Vue 不能检测以下变动的数组：<br>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue<br>当你修改数组的长度时，例如：vm.items.length = newLength<br>为了解决第一类问题，以下两种方式都可以实现和 vm.items[indexOfItem] = newValue 相同的效果，同时也将触发状态更新：<br>// Vue.set<br>Vue.set(vm.items, indexOfItem, newValue)<br>// Array.prototype.splice<br>vm.items.splice(indexOfItem, 1, newValue)</p>
-<p><strong>Vue 虚拟dom</strong><br>vdom因为是纯粹的JS对象，所以操作它会很高效，但是vdom的变更最终会转换成DOM操作.<br>Vue的diff算法是基于snabbdom改造过来的,Vue的diff算法是仅在同级的vnode间做diff，递归地进行同级vnode的diff，最终实现整个DOM树的更新。<br>Vue不断对vnode进行处理同时移动指针直到其中任意一对起点和终点相遇。处理过的节点Vue会在oldVdom和newVdom中同时将它标记为已处理</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjwvg7oss001nwuo4l5wg1bm1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/05/30/html标签元素/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          html标签元素
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/05/30/js使用二三事/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">js使用二三事</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
 
 </section>
         
