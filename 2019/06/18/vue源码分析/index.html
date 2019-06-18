@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue源码分析 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="3.0vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。代码重构的点：内部模块节藕；编译器重构，插件化设计平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码vue hooks 大概率取代了mixins会有一个专门的版本自动降级为用Obj">
+<meta name="keywords" content="vue源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue源码分析">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/vue源码分析/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="3.0vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。代码重构的点：内部模块节藕；编译器重构，插件化设计平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码vue hooks 大概率取代了mixins会有一个专门的版本自动降级为用Obj">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-18T15:30:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue源码分析">
+<meta name="twitter:description" content="3.0vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。代码重构的点：内部模块节藕；编译器重构，插件化设计平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码vue hooks 大概率取代了mixins会有一个专门的版本自动降级为用Obj">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">档案</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/vue源码分析/" class="article-date">
+  <time datetime="2019-06-18T03:51:21.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue源码分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>3.0</strong><br>vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。<br>代码重构的点：内部模块节藕；编译器重构，插件化设计<br>平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码<br>vue hooks 大概率取代了mixins<br>会有一个专门的版本自动降级为用Object.defineproperty()的get、set拦截处理数据，并对一些新的ie不支持的用法做出警告<br><strong><strong>2.x</strong></strong><br>基本模块：准备工作－数据驱动－组件化－响应式原理－编译－扩展－vuerouter－vuex<br><strong><strong>一、Flow</strong></strong><br><strong><strong>Flow是Facebook出品的JavaScript静态类型检查工具。Vue源码利用了Flow做静态类型检查。</strong></strong><br>目的：解决编译阶段不被发现，运行阶段才能暴露的隐患bug，增强代码的可维护性和可读性<br>引入时机：Vue2.0重构时，已包含功能(es6语法，eslint代码风格)<br>选择Flow的原因：Babel和ESLint都有对应的Flow插件以支持语法，改动成本小<br>类型检查是当前动态语言的发展趋势，在编译期尽早发现(由类型错误引起的)bug<br>类型检查方式：类型推断、类型注释(Array&lt;T&gt;,string | number)<br>若想任意类型 T 可以为 null 或者 undefined，只需类似如下写成 ?T 的格式即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//类型推断:下面的写法编译时就会报错，不会等到方法调用时</span><br><span class="line">function split(str)&#123;</span><br><span class="line">	return str.split(&apos;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">split(11);//split方法只接收string类型</span><br><span class="line"></span><br><span class="line">//类型注释，即给参数或变量设置默认类型</span><br><span class="line">function add(x:number,y:number):number&#123;</span><br><span class="line">	return x+y</span><br><span class="line">&#125;</span><br><span class="line">var arr:Array&lt;number&gt; = [1,2,3];</span><br><span class="line">var b:string | number = 123;</span><br></pre></td></tr></table></figure></p>
+<p><strong><strong>二、源码目录结构src</strong></strong><br>compiler(编译相关):把模版解析成ast语法树，ast语法树优化，代码生成等功能。编译是一项耗性能的工作，推荐使用webpack、vue-loader在构建时编译(离线编译)，不要等到运行时<br>core(核心代码)：内置组件、全局API封装、vue实例化，观察者，虚拟dom、工具函数<br>platforms(各平台的支持)：两个目录代表两个主要入口<br>server(服务器端渲染)<br>sfc(.vue文件解析)<br>shared(共享文件)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/vue源码分析/" data-id="cjx1yxp9c000riko4r8e42vgt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue源码/">vue源码</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/18/vue虚拟dom/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue虚拟dom
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/17/js面向对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面向对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面试题/">js面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/js面试题/" style="font-size: 10px;">js面试题</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/18/js数据存储/">js面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/18/vue源码分析/">vue源码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/17/js面向对象/">面向对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/17/vue详解/">vue详解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 yj4me<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">档案</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

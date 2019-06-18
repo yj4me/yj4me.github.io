@@ -65,12 +65,381 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js数据存储" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/js数据存储/" class="article-date">
+  <time datetime="2019-06-18T10:32:17.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/js数据存储/">js面试题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、数据存储：基本数据类型存储在栈中，引用数据类型存储在堆中<br>基本数据类型：string,boolean,number,null,undefined<br>引用数据类型：Object(Array,Function,RegExp等)<br>栈：后进先出，栈中存放基本数据或引用数据的地址<br>堆：是没有结构的，数据可任意存放，为复杂数据类型分配空间<br>2、实现一个深拷贝(递归实现)<br>当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes.<br>ie9+ 支持Array.isArray，属于es6语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj)&#123;</span><br><span class="line">  //判断要拷贝的是数组还是对象：数组进行数组拷贝，对象进行对象拷贝</span><br><span class="line">  //var objClone = obj.constructor == Array ? [] :&#123;&#125;;</span><br><span class="line">  //var objClone = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  var objClone = Array.isArray(obj)? []:&#123;&#125;;</span><br><span class="line">  if(obj &amp;&amp; typeof obj === &apos;object&apos;)&#123;</span><br><span class="line">	for(key in obj)&#123;</span><br><span class="line">	  if(obj.hasOwnProperty(key))&#123;</span><br><span class="line">		if(obj[key] &amp;&amp; typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">		  objClone[key] = deepClone(obj[key]);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">		  objClone[key] = obj[key];</span><br><span class="line">		&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3、数组返回本身的方法都有哪些？<br>push(),unshift()返回长度<br>pop(),shift()返回被删除的元素<br>reverse()会改变原来的数组<br>splice(index,num)//从指定索引处删除指定个数个元素，会改变原数组<br>返回新数组，原数组不改变的方法：slice(),map(),filter()<br>some(),include(),find(),findIndex()<br>4、如何遍历一个树？如何遍历一个一维数组成为一个树？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/js数据存储/" data-id="cjx1yxp91000fiko4vudkyh5j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js面试题/">js面试题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue虚拟dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/vue虚拟dom/" class="article-date">
+  <time datetime="2019-06-18T09:27:26.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在vue2.0渲染层做了根本性的改动，那就是引入了虚拟dom。vdom算法是基于snabbdom算法所做的修改<br>每次更新视图的时候都会使用vdom<br>源码分析：vm实例挂载到dom上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">src/core/instance/init.js</span><br><span class="line">Vue.prototype._init = function()&#123;</span><br><span class="line">	vm.$mount(vm.$options.el)</span><br><span class="line">&#125;</span><br><span class="line">实际上调用的是src/core/instance/lifecycle.js中的mountComponent方法</span><br><span class="line">export function mountComponent(vm:Component,el:?Element,hydrating?:boolean):Component&#123;</span><br><span class="line">	vm.$el = el;</span><br><span class="line">	if(!vm.$options.render)&#123;</span><br><span class="line">		vm.$options.render = createEmptyVNode</span><br><span class="line">	&#125;</span><br><span class="line">	callHook(vm,&apos;beforeMount&apos;)</span><br><span class="line">	let updateComponent</span><br><span class="line">	if(process.env.NODE_ENV !== &apos;production&apos; &amp;&amp; config.performance &amp;&amp; mark)&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		updateComponent = ()=&gt;&#123;</span><br><span class="line">			//vm._render方法会返回一个新的vnode,vm._update就用这个新的vnode和老的vnode进行diff</span><br><span class="line">			vm._update(vm._render(),hydrating)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//在求值的过程中this.value = this.lazy ? undefined : this.get()，</span><br><span class="line">	//会调用this.get()方法，因此在实例化的过程当中Dep.target会被设为这个watcher</span><br><span class="line">	vm._watcher = new Watcher(vm,updateComponent,noop)</span><br><span class="line">	hydrating = false</span><br><span class="line">	if(vm.$vnode == null)&#123;</span><br><span class="line">		vm._isMounted = true</span><br><span class="line">		callHook(vm,&apos;mounted&apos;)</span><br><span class="line">	&#125;</span><br><span class="line">	return vm</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一旦model中的响应式的数据发生了变化，这些响应式的数据所维护的dep数组便会调用dep.notify()方法完成所有依赖遍历执行的工作，这里面就包括了视图的更新即updateComponent方法，它是在mountComponent中的定义的。<br>完成视图的更新工作事实上就是调用了vm._update方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype._update = function(vnode: VNode, hydrating?: boolean)&#123;</span><br><span class="line">	const vm:Component = this</span><br><span class="line">	if(vm._isMounted)&#123;</span><br><span class="line">		callHook(vm,&apos;beforeUpdate&apos;)</span><br><span class="line">	&#125;</span><br><span class="line">	const prevEL = vm.$el</span><br><span class="line">	const prevVnode = vm._vnode</span><br><span class="line">	const prevActiveInstance = activeInstance</span><br><span class="line">	activeInstance = vm</span><br><span class="line">	//新的vnode</span><br><span class="line">	vm._vnode = vnode</span><br><span class="line">	if(!prevVnode)&#123;</span><br><span class="line">		vm.$el = vm.__patch__(vm.$el,vnode,bydrating,false,</span><br><span class="line">		vm.$options._parentElm,</span><br><span class="line">		vm.$options._refElm</span><br><span class="line">		)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		vm.$el = vm.__patch__(prevVnode,vnode)</span><br><span class="line">	&#125;</span><br><span class="line">	activeInstance = prevActiveInstance</span><br><span class="line">	if(prevEL)&#123;</span><br><span class="line">		prevEL.__vue__ = null</span><br><span class="line">	&#125;</span><br><span class="line">	if(vm.$el)&#123;</span><br><span class="line">		vm.$el.__vue__ = vm</span><br><span class="line">	&#125;</span><br><span class="line">	if(vm.$vnode &amp;&amp; vm.$parent &amp;&amp; vm.$node === vm.$parent._node)&#123;</span><br><span class="line">		vm.$parent.$el = vm.$el</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/vue虚拟dom/" data-id="cjx1yxp9f000uiko495s1lagj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/vue源码分析/" class="article-date">
+  <time datetime="2019-06-18T03:51:21.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/vue源码分析/">vue源码分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>3.0</strong><br>vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。<br>代码重构的点：内部模块节藕；编译器重构，插件化设计<br>平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码<br>vue hooks 大概率取代了mixins<br>会有一个专门的版本自动降级为用Object.defineproperty()的get、set拦截处理数据，并对一些新的ie不支持的用法做出警告<br><strong><strong>2.x</strong></strong><br>基本模块：准备工作－数据驱动－组件化－响应式原理－编译－扩展－vuerouter－vuex<br><strong><strong>一、Flow</strong></strong><br><strong><strong>Flow是Facebook出品的JavaScript静态类型检查工具。Vue源码利用了Flow做静态类型检查。</strong></strong><br>目的：解决编译阶段不被发现，运行阶段才能暴露的隐患bug，增强代码的可维护性和可读性<br>引入时机：Vue2.0重构时，已包含功能(es6语法，eslint代码风格)<br>选择Flow的原因：Babel和ESLint都有对应的Flow插件以支持语法，改动成本小<br>类型检查是当前动态语言的发展趋势，在编译期尽早发现(由类型错误引起的)bug<br>类型检查方式：类型推断、类型注释(Array&lt;T&gt;,string | number)<br>若想任意类型 T 可以为 null 或者 undefined，只需类似如下写成 ?T 的格式即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//类型推断:下面的写法编译时就会报错，不会等到方法调用时</span><br><span class="line">function split(str)&#123;</span><br><span class="line">	return str.split(&apos;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">split(11);//split方法只接收string类型</span><br><span class="line"></span><br><span class="line">//类型注释，即给参数或变量设置默认类型</span><br><span class="line">function add(x:number,y:number):number&#123;</span><br><span class="line">	return x+y</span><br><span class="line">&#125;</span><br><span class="line">var arr:Array&lt;number&gt; = [1,2,3];</span><br><span class="line">var b:string | number = 123;</span><br></pre></td></tr></table></figure></p>
+<p><strong><strong>二、源码目录结构src</strong></strong><br>compiler(编译相关):把模版解析成ast语法树，ast语法树优化，代码生成等功能。编译是一项耗性能的工作，推荐使用webpack、vue-loader在构建时编译(离线编译)，不要等到运行时<br>core(核心代码)：内置组件、全局API封装、vue实例化，观察者，虚拟dom、工具函数<br>platforms(各平台的支持)：两个目录代表两个主要入口<br>server(服务器端渲染)<br>sfc(.vue文件解析)<br>shared(共享文件)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/vue源码分析/" data-id="cjx1yxp9c000riko4r8e42vgt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue源码/">vue源码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/17/js面向对象/" class="article-date">
+  <time datetime="2019-06-17T10:59:34.000Z" itemprop="datePublished">2019-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/17/js面向对象/">面向对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.类与实例：类的声明，创建实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//传统方式：构造函数</span><br><span class="line">function Student(name)&#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//es6语法</span><br><span class="line">class Student&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.继承的原理：原型链<br>3.实现继承的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//借助构造函数实现继承:不能继承原型对象中的方法(部分继承)</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//借助原型链实现继承:不能实现隔离，修改原型链上的属性就会所有实例都改变</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line"></span><br><span class="line">//组合方式：构造函数执行2次</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line"></span><br><span class="line">//组合优化：此时创建的实例既是child的实例，又是parent的实例，区别不了，实例的constructor指向parent</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = Parent.prototype;</span><br><span class="line"></span><br><span class="line">//最终版</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">//创建中间对象</span><br><span class="line">Child.prototype = Object.create(Parent.prototype)</span><br><span class="line">Child.prototype.constructor = Child;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/17/js面向对象/" data-id="cjx1yxp9j0011iko4ruva5pce" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js面向对象/">js面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/17/vue详解/" class="article-date">
+  <time datetime="2019-06-17T10:02:46.000Z" itemprop="datePublished">2019-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/17/vue详解/">vue详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、<a href="https://cn.vuejs.org/v2/guide/comparison.html" target="_blank" rel="noopener">vue与其它框架的异同点</a><br>与react相似之处：<br>使用虚拟dom；提供了响应式(Reactive)和组件化(Composable)的视图组件；<br>将注意力集中保持在核心库，而将其它功能如路由和全局状态管理交给相关的库<br>2、<a href="https://router.vuejs.org/zh/guide/essentials/navigation.html" target="_blank" rel="noopener">vue-router之编程式导航</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 命名的路由</span><br><span class="line">router.push(&#123; name: &apos;user&apos;, params: &#123; userId: &apos;123&apos; &#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 带查询参数，变成 /register?plan=private</span><br><span class="line">router.push(&#123; path: &apos;register&apos;, query: &#123; plan: &apos;private&apos; &#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果提供了 path，params 会被忽略<br>3、vuex<br>Vuex 背后的基本思想：通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。<br>改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation,可以追踪状态变化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">store.commit(&apos;increment&apos;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/17/vue详解/" data-id="cjx1yxp9k0013iko4rnln6k5a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dom事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/17/dom事件/" class="article-date">
+  <time datetime="2019-06-17T07:47:28.000Z" itemprop="datePublished">2019-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html基础/">html基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/17/dom事件/">dom事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>dom事件级别:dom0,dom2,dom3<br>dom0:    el.onclick = function(){}<br>dom2:    el.addEventListener(‘click’,function(){},false)<br>dom3:    el.addEventListener(‘keyup’,function(){},false)<br>dom1中没有定义事件相关的东西，所以说事件级别没有dom1，dom3中事件类型增加了许多</li>
+<li>dom事件模型：事件捕获（从上向下），事件冒泡</li>
+<li>dom事件流：捕获阶段、目标阶段、冒泡阶段</li>
+<li>dom事件捕获的具体流程<br>window-document-html(document.documentElement)-body-目标元素</li>
+<li>event对象的常见应用<br>e.preventDefault()、e.stopPropagation()、e.stopImmediatePropagation():事件响应优先级、e.target、e.currentTarget<br>事件委托(事件代理)的写法：$(ul).delegate(‘li’,click,fun);</li>
+<li>自定义事件<br>var eve = new Event(‘custome’);<br>或者var eve = new CustomEvent(‘custome’,obj);//可以接受参数<br>el.addEventListener(‘custome’,function(){<br> console.log(‘custome’);<br>},false);<br>el.dispatchEvent(eve);</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/17/dom事件/" data-id="cjx1yxp8t0005iko4gm3bf0oc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css盒模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/17/css盒模型/" class="article-date">
+  <time datetime="2019-06-17T07:08:04.000Z" itemprop="datePublished">2019-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html基础/">html基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/17/css盒模型/">css盒模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>css盒模型：标准盒模型／IE盒模型</li>
+<li>两种盒模型的区别：标准盒模型width只包括内容部分，IE盒模型width＝内容＋padding＋border</li>
+<li>css如何设置这两种样式：box-sizing:content-box/border-box</li>
+<li>js获取盒模型的宽高:dom.style.width/height(只能取到行内样式的宽高)<br>dom.currentStyle.width/height(只有ie支持)<br>window.getComputedStyle(dom).width/height(兼容性好)<br>dom.getBoundingClientRect().width/height（计算元素的绝对位置）</li>
+<li>解释边距重叠<br>父子元素边距重叠，兄弟元素边距重叠</li>
+<li>什么是BFC?原理？创建BFC的几种方式,使用场景<br>BFC（块级格式化上下文：边距重叠解决方案）<br>原理：1.BFC元素不会与浮动元素重叠2.浮动的子元素参与计算高度<br>设置overflow:auto/hidden，float不为none，position:absolute/fixed,display:,</li>
+<li>清除浮动（BFC清除浮动）</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/17/css盒模型/" data-id="cjx1yxp8r0004iko465pkdpql" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jQuery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/15/jQuery源码解析/" class="article-date">
+  <time datetime="2019-06-15T10:21:13.000Z" itemprop="datePublished">2019-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/15/jQuery源码解析/">jQuery源码解析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery2.0之后不再支持IE6/7/8,从2.1版开始jQuery支持通过AMD模块化分<br>jQuery的核心理念：The Write Less,Do More.<br><span><img src="/img/jquery.png" alt="image"></span><br>任何库与框架设计的第一个要点就是解决命名空间与变量污染的问题。jQuery就是利用了JavaScript函数作用域的特性，采用立即调用表达式包裹了自身的方法来解决这个问题。<br>jQuery兼容的具体策略：针对高级的浏览器，我们当前很乐意用DOMContentLoaded事件了，省时省力。<br>对于旧的IE,document.attachEvent<br><strong>jQuery的整体架构：</strong><br>变量、常用正则初始化<br>工具方法$.fn<br>$.ready()<br>复杂选择器Sizzle<br>回调对象：对函数的统一管理$.Callback()<br>延迟对象：对异步的统一管理$.Deferred()<br>浏览器功能性检测$.support<br>数据存储$.data<br>队列方法：执行顺序的管理queue()|dequeue()<br>对元素属性的操作：attr()、prop()、val()、addClass()等<br>事件操作的相关方法：on()、trigger()<br>DOM操作<br>样式操作：css()<br>Ajax()<br>动画animate()<br>位置和尺寸offset()<br>模块化<br>window.jQuery = window.$ = jQuery;<br><strong>jQuery 闭包结构</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 用一个函数域包起来，就是所谓的沙箱</span><br><span class="line">// 在这里边 var 定义的变量，属于这个函数域内的局部变量，避免污染全局</span><br><span class="line">// 把当前沙箱需要的外部变量通过函数参数引入进来</span><br><span class="line">// 只要保证参数对内提供的接口的一致性，你还可以随意替换传进来的这个参数</span><br><span class="line">(<span class="keyword">function</span>(window, undefined) &#123;</span><br><span class="line"> // jQuery 代码</span><br><span class="line">&#125;)(window);</span><br><span class="line">jQuery 具体的实现，都被包含在了一个立即执行函数构造的闭包里面，为了不污染全局作用域，只在后面暴露 $ 和 jQuery 这 2 个变量给外界，尽量的避开变量冲突。</span><br><span class="line">jQuery 在这里有一个针对压缩优化细节，使用这种书写方式，在代码压缩的时候，window 和 undefined 都可以压缩为 1 个字母并且确保它们就是 window 和 undefined。</span><br><span class="line">// 压缩策略</span><br><span class="line">// w -&gt; windwow , u -&gt; undefined</span><br><span class="line">(<span class="keyword">function</span>(w, u) &#123;</span><br><span class="line"> </span><br><span class="line">&#125;)(window);</span><br></pre></td></tr></table></figure></p>
+<p><strong>内部实现：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">jQuery = <span class="keyword">function</span>(selector, context) &#123;</span><br><span class="line">       // The jQuery object is actually just the init constructor <span class="string">'enhanced'</span></span><br><span class="line">       // 看这里，实例化方法 jQuery() 实际上是调用了其拓展的原型方法 jQuery.fn.init</span><br><span class="line">       <span class="built_in">return</span> new jQuery.fn.init(selector, context, rootjQuery);</span><br><span class="line">   &#125;,</span><br><span class="line"></span><br><span class="line">   // jQuery.prototype 即是 jQuery 的原型，挂载在上面的方法，即可让所有生成的 jQuery 对象使用</span><br><span class="line">   jQuery.fn = jQuery.prototype = &#123;</span><br><span class="line">       // 实例化化方法，这个方法可以称作 jQuery 对象构造器</span><br><span class="line">       init: <span class="keyword">function</span>(selector, context, rootjQuery) &#123;</span><br><span class="line">           // ... </span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   // 这一句很关键，也很绕</span><br><span class="line">   // jQuery 没有使用 new 运算符将 jQuery 实例化，而是直接调用其函数</span><br><span class="line">   // 要实现这样,那么 jQuery 就要看成一个类，且返回一个正确的实例</span><br><span class="line">   // 且实例还要能正确访问 jQuery 类原型上的属性与方法</span><br><span class="line">   // jQuery 的方式是通过原型传递解决问题，把 jQuery 的原型传递给jQuery.prototype.init.prototype</span><br><span class="line">   // 所以通过这个方法生成的实例 this 所指向的仍然是 jQuery.fn，所以能正确访问 jQuery 类原型上的属性与方法</span><br><span class="line">   jQuery.fn.init.prototype = jQuery.fn;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/15/jQuery源码解析/" data-id="cjx1yxp8z000biko4hhcfxeaq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-html页面布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/14/html页面布局/" class="article-date">
   <time datetime="2019-06-14T02:03:42.000Z" itemprop="datePublished">2019-06-14</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html基础/">html基础</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -87,13 +456,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><strong>一、高度已知（200px），左右宽度固定300px，右边自适应的三栏布局</strong><br>1、浮动：先写浮动的元素（左右），再写标准文档流元素<br>2、绝对定位：中间设置left：300px；right：300px；相当于设置了宽度<br>3、flex布局<br>4、table布局：父元素设置display：table；子元素设置display:table-cell;<br>5、网格布局：父元素设置display:grid;grid-template-columns:300px auto 300px;grid-template-rows:200px;<br><strong>二、高度未知，左右宽度固定300px，右边自适应，且左右高度能够跟着父容器变化的三栏布局</strong><br>1、flex布局<br>2、table布局：父元素设置display：table；子元素设置display:table-cell;</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/14/html页面布局/" data-id="cjwvg7ork0006wuo42wmaafp9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/14/html页面布局/" data-id="cjx1yxp92000hiko46yo0pygn" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html页面布局/">html页面布局</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,377 +499,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>基础流程：</strong>页面布局－css盒模型－DOM事件－HTTP协议-面向对象－原型链－通信－安全－算法<br>1、页面布局</p>
+        <p><strong>基础流程：</strong><a href="/2019/06/14/html%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/">页面布局</a>－<a href="/2019/06/17/css盒模型/">css盒模型</a>－<a href="/2019/06/17/dom事件/">DOM事件</a>－HTTP协议-面向对象－原型链－通信－安全－算法</p>
+<p><strong><strong>http协议类：请求－应答模式</strong></strong><br>1、 http协议的主要特点：简单快速，灵活，无连接，无状态<br>2、 http报文的组成部分：<br>请求报文：请求行(GET/HTTP/1.1)＋请求头(一系列键值对)＋空行＋请求体<br>响应报文：状态行(HTTP/1.1 200 OK)＋响应头＋空行＋响应体<br>3、 http方法：get/post/put/delete/head<br>4、 post和get的区别:<br>浏览器回退重复提交(post)／无害(get)<br>get产生的url可以被收藏，post不可以<br>get会被浏览器主动缓存，post不会<br>get url有长度限制，因此不能携带太多参数<br>get没有post安全，不能存放敏感信息<br>get请求通过url传递参数，post放在request body中<br>5、 http状态码<br>1XX：<br>2xx：200,206<br>3xx：301(Moved Permanently),304(Not Modified)<br>4xx：400,401,403,404,405<br>5xx：500,503<br>6、 持久链接／管线化：Keep-alive(1.1)</p>
+<p><strong><strong><a href="http://www.imooc.com/article/40074" target="_blank" rel="noopener">通信类</a></strong></strong><br>1、同源策略及限制：协议、域名、端口号相同<br>跨域：跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。<br>跨域带来的问题：cookie、localstorage和indexDB无法读取；dom无法获得；ajax请求不能发送<br>有三个标签允许跨域请求资源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=XXX&gt; 2.&lt;link href=XXX&gt; 3.&lt;script src=XXX&gt;</span><br></pre></td></tr></table></figure></p>
+<p>所有的跨域都必须经过信息提供方的允许才能完成<br>2、前后端如何通信：ajax、webSocket、cors<br>3、<a href="/2018/05/28/第21章Ajax-Comet/">如何创建Ajax</a><br>4、跨域通信的几种方式:jsonp,hash,postMessage,webSocket,cors<br>jsonp只支持get请求<br>实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。<br>响应头添加header(“Access-Control-Allow-Origin:*”）；默认地址是网站本身<br>cors要求前端浏览器&gt;10,<br>websocket在建立时需要借助http协议，连接建立好之后client与server之间的双向通信就与http无关了<br>原生websocketAPI使用起来不太方便，我们使用Socket.io</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/面试基础知识总结/" data-id="cjwvg7os6000ywuo46g1d5wq5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/11/面试基础知识总结/" data-id="cjx1yxp9v001qiko4a83wer6i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/19/js基础/" class="article-date">
-  <time datetime="2019-05-19T03:07:51.000Z" itemprop="datePublished">2019-05-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/js基础/">js基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/19/js基础/">js基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、创建对象的几种方式：<br>1、创建单个对象（Object 构造函数或对象字面量），缺点：创建很多对象,会产生大量的重复代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//Object 构造函数</span><br><span class="line">var person = new Object();</span><br><span class="line">person.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">person.age = 29;</span><br><span class="line"></span><br><span class="line">//对象字面量</span><br><span class="line">var person = &#123;</span><br><span class="line">    name: <span class="string">"Nicholas"</span>,</span><br><span class="line">    age: 29</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>2、工厂模式（解决创建很多对象,会产生大量的重复代码的问题）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> createPerson(name, age)&#123;</span><br><span class="line">	var o = new Object();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	<span class="built_in">return</span> o; </span><br><span class="line">&#125;</span><br><span class="line">var person1 = createPerson(<span class="string">"Nicholas"</span>, 29);</span><br><span class="line">var person2 = createPerson(<span class="string">"Nicholas"</span>, 29);</span><br></pre></td></tr></table></figure></p>
-<p>3、构造函数模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name, age)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age; </span><br><span class="line">&#125;</span><br><span class="line">var person1 = new Person(<span class="string">"Nicholas"</span>, 29);</span><br><span class="line">var person2 = new Person(<span class="string">"Nicholas"</span>, 29);</span><br></pre></td></tr></table></figure></p>
-<p>4、Object.create，使用现有的对象来提供新创建的对象的<strong>proto</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/19/js基础/" data-id="cjwvg7orp000bwuo4z4scc0cc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-element-ui在项目中的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/15/element-ui在项目中的使用/" class="article-date">
-  <time datetime="2019-04-15T14:50:24.000Z" itemprop="datePublished">2019-04-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/element-ui/">element-ui</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/15/element-ui在项目中的使用/">element-ui在项目中的应用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>element-ui中的表格在项目中的应用场景是最多的，针对不同的需求，会有各种自定义效果.<br>1、在线生成主题之后，引入自定义主题<a href="http://element-cn.eleme.io/#/zh-CN/component/custom-theme#yin-ru-zi-ding-yi-zhu-ti" target="_blank" rel="noopener">自定义主题</a></p>
-<p>1、单选效果(第一列显示单选按钮，点击当前行选中)<br>2、多选效果(添加多选选种效果，点击当前行选中)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/15/element-ui在项目中的使用/" data-id="cjwvg7orc0001wuo4o3anc14z" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/table表格/">table表格</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue项目中如何使用less" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/19/vue项目中如何使用less/" class="article-date">
-  <time datetime="2018-06-19T12:04:33.000Z" itemprop="datePublished">2018-06-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/19/vue项目中如何使用less/">vue项目中如何使用less</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、首选，安装 less 和 less-loader    npm install less less-loader –save-dev<br>2、在build/webpack.base.conf.js文件中的loader/rules中添加配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="built_in">test</span>: /\.less$/,</span><br><span class="line">	loader: <span class="string">"style-loader!css-loader!less-loader"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3、最后，在代码中的 style 标签中 加上 lang=”less” 属性即可</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/19/vue项目中如何使用less/" data-id="cjwvg7orr000fwuo4s4bkh7j8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/less/">less</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用element-ui进行样式修改" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/18/使用element-ui进行样式修改/" class="article-date">
-  <time datetime="2018-06-18T00:17:14.000Z" itemprop="datePublished">2018-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/element-ui/">element-ui</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/使用element-ui进行样式修改/">使用element-ui进行样式修改</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目中主要使用的是element-ui组件进行快速开发，但是样式要根据设计图进行自定义修改。这里记录一下一些不容易修改的地方。<br>1、使用日期选择器控件，但是要把图标放到输入框的后面.<br><span><img src="/img/calandar.png" alt="image"></span><br>对于第一种情况，查看元素的时候可以看到用的是绝对定位，所以只需要重写left的值就可以了<br>第二种，查看元素发现用的是flex布局，flex布局中有五个子元素（后面还有一个隐藏的清除按钮）。<br>只需要给要移动的子元素添加属性order:&lt;integer>即可，我这里添加的是order:5,就把图标放到最后面去了。<br>参考文章: <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程 语法篇4.1 order属性</a></p>
-<p>2、表格中修改tooltip的样式<br>查看文档的时候，只发现可以给table添加属性：tooltip effect 属性    String    dark/light<br>light样式是白色背景带黑色边框，dark是默认样式，黑色背景白色文字<br>这两种效果并不符合设计图中的样式，所以要进行修改。但查看元素的时候一直定位不到tooltip。<br><strong>最终搜索到的解决办法：开发者工具有个Sources页，里面有暂停功能，快捷键是F8，在打开开发者工具的后，先把tooltip弹出来，再按F8暂停，tooltip就不会消失了</strong><br>这时候就可以定位到元素，进行样式重写了。</p>
-<p>3、在自己的组件中style添加了scoped,在里面再去重写element-ui中元素的样式不起作用。<br><strong>深选择器：如果想对设置了scoped的子组件里的元素进行控制可以使用’&gt;&gt;&gt;’或者’deep’</strong><br>一些预处理程序例如sass不能解析&gt;&gt;&gt;属性，这种情况下可以用deep，它是&gt;&gt;&gt;的别名，工作原理相同。<br>参考文章:<a href="https://vue-loader.vuejs.org/guide/scoped-css.html#child-component-root-elements" target="_blank" rel="noopener">Deep Selectors</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/使用element-ui进行样式修改/" data-id="cjwvg7oru000lwuo4l0afk2pm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/样式重置/">样式重置</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-html标签元素" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/30/html标签元素/" class="article-date">
-  <time datetime="2018-05-30T02:06:33.000Z" itemprop="datePublished">2018-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/面试/">面试</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/html标签元素/">html标签元素</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>pre</strong> 元素可定义预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。<br>可以导致段落断开的标签（例如标题、&lt;p> 和 &lt;address> 标签）绝不能包含在 &lt;pre> 所定义的块里。<br>所有浏览器都支持 &lt;pre> 标签。<br>
-        
-          <p class="article-more-link">
-            <a href="/2018/05/30/html标签元素/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/html标签元素/" data-id="cjwvg7orj0005wuo4nj233yyh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue中对各个变量的理解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/30/vue中对各个变量的理解/" class="article-date">
-  <time datetime="2018-05-30T00:54:50.000Z" itemprop="datePublished">2018-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/vue中对各个变量的理解/">vue中对各个对象的理解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>data</strong> 是Vue实例的数据对象。Vue将会将data 的属性转换为 getter/setter, 也就是用Object.defineProperty方法(在官网里面<br><a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">深入响应式原理</a>里面具体的介绍)。<br><strong>props</strong> 可以是数组或对象，用于接收来自父组件的数据。props 可以是简单的数组，或者使用对象作为替代，<br>对象允许配置高级选项，如类型检测、自定义校验和设置默认值。<br><strong>computed</strong> 计算属性用来处理复杂的逻辑运算，是在HTML DOM加载后马上执行的。只有在相关的数据发生变化时才会改变要计算的属性，当相关数据没有变化时，它会读取缓存。</p>
-<p><strong>methods</strong>则必须要有一定的触发条件才能执行，如点击事件；<br><strong>watch</strong>用于观察Vue实例上的数据变动。对应一个对象，键是观察表达式，值是对应回调。值也可以是方法名，或者是对象，包含选项。所以执行回调函数的时候，watch是首选<br>所以他们的执行顺序为：默认加载的时候先computed再watch，不执行methods；等触发某一事件后，则是：先methods再watch。<br>watch的深度监听：数组，对象，数组对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> watch:&#123;</span><br><span class="line">    <span class="string">'city'</span>:&#123;</span><br><span class="line">        handler:<span class="keyword">function</span>(newValue,oldValue)&#123;</span><br><span class="line">            console.log(newValue)</span><br><span class="line">        &#125;,</span><br><span class="line">        deep:<span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>采用上述方法，只有数组监听不到,由于 JavaScript 的限制，Vue 不能检测以下变动的数组：<br>当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue<br>当你修改数组的长度时，例如：vm.items.length = newLength<br>为了解决第一类问题，以下两种方式都可以实现和 vm.items[indexOfItem] = newValue 相同的效果，同时也将触发状态更新：<br>// Vue.set<br>Vue.set(vm.items, indexOfItem, newValue)<br>// Array.prototype.splice<br>vm.items.splice(indexOfItem, 1, newValue)</p>
-<p><strong>Vue 虚拟dom</strong><br>vdom因为是纯粹的JS对象，所以操作它会很高效，但是vdom的变更最终会转换成DOM操作.<br>Vue的diff算法是基于snabbdom改造过来的,Vue的diff算法是仅在同级的vnode间做diff，递归地进行同级vnode的diff，最终实现整个DOM树的更新。<br>Vue不断对vnode进行处理同时移动指针直到其中任意一对起点和终点相遇。处理过的节点Vue会在oldVdom和newVdom中同时将它标记为已处理</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/vue中对各个变量的理解/" data-id="cjwvg7oss001nwuo4l5wg1bm1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js使用二三事" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/30/js使用二三事/" class="article-date">
-  <time datetime="2018-05-29T23:58:54.000Z" itemprop="datePublished">2018-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/js基础/">js基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/30/js使用二三事/">js使用二三事</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、e.target &amp; e.currentTarget<br>用最简单的语言总结：<br>target: 代表当前目标对象（事件作用的对象）,被点击的对象<br>currentTarget: 代表注册监听器的对象,事件绑定的元素<br>this: 和currentTarget一样，即它们的作用相等。<br>2、js中，我们可以给一个dom对象添加监听事件，函数就是<br>addEventListener(“click”,function(){},true);<br>第三个函数：isCatch(是否捕获)，默认值是false(冒泡)<br>3、HTML 5 的data-* 自定义属性<br>这种方式通过访问一个元素的 dataset 属性来存取 data-* 自定义属性的值。这个 dataset 属性是HTML5 JavaScript API的一部分，用来返回一个所有选择元素 data- 属性的DOMStringMap对象。<br>使用这种方法时，不是使用完整的属性名，应该去掉data- 前缀。<br>data- 属性名如果包含了连字符，例如：data-date-of-birth ，会按驼峰式的命名转换为dateOfBirth 。<br>4、jQuery对象与普通dom之间的转换<br>两种转换方式将一个jQuery对象转换成DOM对象：[index]和.get(index);<br>如：var $v =$(“#v”) ; //jQuery对象<br>var v=$v[0]; //DOM对象<br>var v=$v.get(0); //DOM对象<br>对于已经是一个DOM对象，只需要用$()把DOM对象包装起来，就可以获得一个jQuery对象了。$(DOM对象)<br>5、jQuery的自定义动画animate()<br>语法：animate(params,speed,callback);</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjwvg7orn000awuo40ld8huok" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第21章Ajax-Comet" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/28/第21章Ajax-Comet/" class="article-date">
-  <time datetime="2018-05-28T09:05:30.000Z" itemprop="datePublished">2018-05-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/js基础/">js基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/28/第21章Ajax-Comet/">第21章Ajax&amp;Comet</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Ajax(Asynchronous JavaScript + XML)<br><strong>Ajax技术的核心是XMLHttpRequest对象（简称XHR）</strong><br>Ajax通信与数据格式无关，这种技术就是无需刷新页面即可从服务器取得数据，但不一定是XML数据。<br>
-        
-          <p class="article-more-link">
-            <a href="/2018/05/28/第21章Ajax-Comet/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjwvg7os2000vwuo43qxklcu6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
 
     </footer>
   </div>
@@ -510,7 +523,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -521,7 +534,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -531,7 +544,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面试题/">js面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -541,7 +554,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/js面试题/" style="font-size: 10px;">js面试题</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -563,23 +576,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/14/html页面布局/">html页面布局</a>
+            <a href="/2019/06/18/js数据存储/">js面试题</a>
           </li>
         
           <li>
-            <a href="/2019/06/11/面试基础知识总结/">面试基础知识总结</a>
+            <a href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
           </li>
         
           <li>
-            <a href="/2019/05/19/js基础/">js基础</a>
+            <a href="/2019/06/18/vue源码分析/">vue源码分析</a>
           </li>
         
           <li>
-            <a href="/2019/04/15/element-ui在项目中的使用/">element-ui在项目中的应用</a>
+            <a href="/2019/06/17/js面向对象/">面向对象</a>
           </li>
         
           <li>
-            <a href="/2018/06/19/vue项目中如何使用less/">vue项目中如何使用less</a>
+            <a href="/2019/06/17/vue详解/">vue详解</a>
           </li>
         
       </ul>
