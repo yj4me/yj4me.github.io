@@ -65,6 +65,187 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js使用二三事" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/30/js使用二三事/" class="article-date">
+  <time datetime="2018-05-29T23:58:54.000Z" itemprop="datePublished">2018-05-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/30/js使用二三事/">js使用二三事</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、e.target &amp; e.currentTarget<br>用最简单的语言总结：<br>target: 代表当前目标对象（事件作用的对象）,被点击的对象<br>currentTarget: 代表注册监听器的对象,事件绑定的元素<br>this: 和currentTarget一样，即它们的作用相等。<br>2、js中，我们可以给一个dom对象添加监听事件，函数就是<br>addEventListener(“click”,function(){},true);<br>第三个函数：isCatch(是否捕获)，默认值是false(冒泡)<br>3、HTML 5 的data-* 自定义属性<br>这种方式通过访问一个元素的 dataset 属性来存取 data-* 自定义属性的值。这个 dataset 属性是HTML5 JavaScript API的一部分，用来返回一个所有选择元素 data- 属性的DOMStringMap对象。<br>使用这种方法时，不是使用完整的属性名，应该去掉data- 前缀。<br>data- 属性名如果包含了连字符，例如：data-date-of-birth ，会按驼峰式的命名转换为dateOfBirth 。<br>4、jQuery对象与普通dom之间的转换<br>两种转换方式将一个jQuery对象转换成DOM对象：[index]和.get(index);<br>如：var $v =$(“#v”) ; //jQuery对象<br>var v=$v[0]; //DOM对象<br>var v=$v.get(0); //DOM对象<br>对于已经是一个DOM对象，只需要用$()把DOM对象包装起来，就可以获得一个jQuery对象了。$(DOM对象)<br>5、jQuery的自定义动画animate()<br>语法：animate(params,speed,callback);</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/30/js使用二三事/" data-id="cjxb3h9x7000lp3o44ik86d36" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-第21章Ajax-Comet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/28/第21章Ajax-Comet/" class="article-date">
+  <time datetime="2018-05-28T09:05:30.000Z" itemprop="datePublished">2018-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/28/第21章Ajax-Comet/">第21章Ajax&amp;Comet</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ajax(Asynchronous JavaScript + XML)<br><strong>Ajax技术的核心是XMLHttpRequest对象（简称XHR）</strong><br>Ajax通信与数据格式无关，这种技术就是无需刷新页面即可从服务器取得数据，但不一定是XML数据。<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/28/第21章Ajax-Comet/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/28/第21章Ajax-Comet/" data-id="cjxb3h9xw001np3o4swjzm3of" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTTP图解读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/28/HTTP图解读书笔记/" class="article-date">
+  <time datetime="2018-05-28T07:12:33.000Z" itemprop="datePublished">2018-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/28/HTTP图解读书笔记/">HTTP图解读书笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、当我们在网页浏览器（Web browser）的地址栏中输入 URL时，Web页面是如何呈现的？<br>Web使用一种名为HTTP(HyperText Transfer Protocol,超文本传输协议)的协议作为规范，完成从客户端到服务器端等一系列运作流程。协议是指规则的约定。可以说，Web是建立在HTTP协议上通信的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/28/HTTP图解读书笔记/" data-id="cjxb3h9wh0000p3o4bnp43pn7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-代码管理中常用的git命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/26/代码管理中常用的git命令/" class="article-date">
+  <time datetime="2018-05-25T16:03:44.000Z" itemprop="datePublished">2018-05-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/26/代码管理中常用的git命令/">代码管理中常用的git命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先新建远程仓库<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/projectname.git（下载远程代码到本地）<br>git init (初始化本地仓库)<br>git add .(将本地文件加入缓存区)<br>git commit -m “修改的内容说明” （说明性内容）<br>git push origin master （push文件到仓库中）</p>
+<p>之后每次在提交之前都需要先pull一下（先更新，再提交）<br>git pull (拉取远程代码，使本地跟远程保持一致)<br>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/26/代码管理中常用的git命令/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/26/代码管理中常用的git命令/" data-id="cjxb3h9xp001bp3o4w91yb4el" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git常用命令/">git常用命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-我的云笔记整理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/25/我的云笔记整理/" class="article-date">
@@ -100,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/我的云笔记整理/" data-id="cjx2sv5t3001nyxo4rccss0ha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/我的云笔记整理/" data-id="cjxb3h9xs001hp3o4auvb6lro" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -148,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjx2sv5t0001hyxo4xf9a5kdi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/我的第一篇博文/" data-id="cjxb3h9xu001lp3o4fxbk33a9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -197,7 +378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjx2sv5rv0001yxo40nhb7m0k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/25/hello-world/" data-id="cjxb3h9wt0006p3o4osqgp3lj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -234,7 +415,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面试题/">js面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -244,7 +425,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/js面试题/" style="font-size: 10px;">js面试题</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -266,23 +447,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/18/js数据存储/">js面试题</a>
+            <a href="/2019/06/21/面试/">面试</a>
           </li>
         
           <li>
-            <a href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
+            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
           </li>
         
           <li>
-            <a href="/2019/06/18/vue源码分析/">vue源码分析</a>
+            <a href="/2019/06/20/normalize-css/">normalize.css</a>
           </li>
         
           <li>
-            <a href="/2019/06/17/js面向对象/">面向对象</a>
+            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
           </li>
         
           <li>
-            <a href="/2019/06/17/vue详解/">vue详解</a>
+            <a href="/2019/06/19/面试题/">面试题</a>
           </li>
         
       </ul>

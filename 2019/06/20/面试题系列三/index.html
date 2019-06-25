@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>面试题系列三 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、html部分常见问题  怎么让一个不定宽高的div，垂直水平居中？方法一：表格布局父盒子设置：display:table-cell;text-align:center;vertical-align:middle;Div 设置： display:inline-block;vertical-align:middle；方法二：绝对定位父盒子设置：display:relative;Div 设置： po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题系列三">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/面试题系列三/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="一、html部分常见问题  怎么让一个不定宽高的div，垂直水平居中？方法一：表格布局父盒子设置：display:table-cell;text-align:center;vertical-align:middle;Div 设置： display:inline-block;vertical-align:middle；方法二：绝对定位父盒子设置：display:relative;Div 设置： po">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-20T10:45:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试题系列三">
+<meta name="twitter:description" content="一、html部分常见问题  怎么让一个不定宽高的div，垂直水平居中？方法一：表格布局父盒子设置：display:table-cell;text-align:center;vertical-align:middle;Div 设置： display:inline-block;vertical-align:middle；方法二：绝对定位父盒子设置：display:relative;Div 设置： po">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">档案</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面试题系列三" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/20/面试题系列三/" class="article-date">
+  <time datetime="2019-06-20T08:56:00.000Z" itemprop="datePublished">2019-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试题系列三
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、html部分常见问题</strong></p>
+<ol>
+<li>怎么让一个不定宽高的div，垂直水平居中？<br>方法一：表格布局<br>父盒子设置：display:table-cell;text-align:center;vertical-align:middle;<br>Div 设置： display:inline-block;vertical-align:middle；<br>方法二：绝对定位<br>父盒子设置：display:relative;<br>Div 设置： position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);</li>
+<li>position几个属性的作用？<br>position的常见四个属性值：relative,absolute,fixed,static(默认值)</li>
+<li>px、em、rem的区别？<br>px像素，绝对单位，相对于显示器屏幕分辨率而言的。em相对于当前对象内文本的字体尺寸，rem是css3新增，相对于html根元素的字体大小<br>除了 IE8 及更早版本外，所有浏览器均已支持 rem。</li>
+<li>BFC(块级格式化上下文)<br>A.  内部的 Box 会在垂直方向，一个接一个地放置。<br>B. Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box的margin 会发生重叠。<br>C.  每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>D. BFC 的区域不会与 float box 重叠。<br>E.  BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br>F.  计算 BFC 的高度时，浮动元素也参与计算。<br>2）哪些元素会生成 BFC：<br>A.  根元素<br>B. float 属性不为 none<br>C. position 为 absolute 或 fixed<br>D. display 为 inline-block， table-cell，table-caption， flex， inline-flex<br>E. overflow 不为visible</li>
+<li>box-sizing、transition、translate分别是什么？<br>Box-sizing： 用来指定盒模型的大小的计算方式。主要分为boreder-box（从边框固定盒子大小）、content-box（从内容固定盒子大小）两种计算方式。<br>transition： 当前元素只要有“属性”发生变化时，可以平滑的进行过渡。通过 transtion-propety 设置过渡属性；<br>transtion-duration 设置过渡时间；<br>trantion-timing-function 设置过渡速度；<br>trantion-delay 设置过渡延时<br>translate：通过移动改变元素的位置；有 x、y、z 三个属性</li>
+<li>选择器优先级是怎样的？<br>！important&gt;行内样式&gt;id 选择器&gt;类选择器&gt;标签选择器&gt;通配符&gt;继承</li>
+<li>Iframe的作用？<br>Iframe是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样可以在切换页面的时候避免重复下载。<br>优点：便于修改，模块分离，像一些信息管理系统会用到。但现在基本上不推荐使用。除非特殊需要，一般不推荐使用。<br>缺点 :<br>（1）iframe 的创建比一般的 DOM 元素慢了 1-2 个数量级<br>（2）iframe 标签会阻塞页面的加载，如果页面的onload 事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好.在 Safari 和 Chrome 中可以通过 js 动态设置 iframe 的 src 属性来避免阻塞.<br>（3）iframe 对于 SEO 不友好，替代方案一般就是动态语言的 Incude 机制和 ajax 动态填充内容等.</li>
+<li>有一个导航栏在chrome 里面样式完好？在 IE 里文字都聚到一起了，是哪个兼容性问题？<br>用了 display：flex 属性，在 ie10 以下都是无效的。</li>
+<li>xhtml和 html 有什么区别？<br>答：HTML是一种基本的 WEB 网页设计语言，XHTML 是一个基于 XML 的置标语言最主要的不同：<br>XHTML元素必须被正确地嵌套。<br>XHTML元素必须被关闭。<br>标签名必须用小写字母。<br>XHTML文档必须拥有根元素。</li>
+<li>标签上title 与 alt 属性的区别是什么?<br>答：Alt 当图片不显示时，用文字代表。Title为该属性提供信息。</li>
+<li>改变元素的外边距用什么属性？改变元素的内填充用什么属性？<br>答：改变元素的外边距用 margin，改变元素的内填充用 padding。</li>
+<li>在新窗口打开链接的方法是？答：target：_blank。</li>
+<li>合理的页面布局中常听过结构与表现分离，那么结构是什么？表现是什么？<br>答：结构是 html，表现是 css。</li>
+<li>简述对Web 语义化的理解？<br>答：就是让浏览器更好的读懂你写的代码，在进行 HTML 结构、表现、行为设计时，尽量使用语义化的标签，使程序代码简介明了，易于进行Web 操作和网站 SEO，方便团队协作的一种标准，以图实现一种“无障碍”的  Web 开发。</li>
+<li>每个HTML 文件里开头都有个很重要的东西，Doctype，知道这是干什么的吗？<br>答：DOCTYPE 是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义来解析文档。只有确定了一个正确的文档类型，超文本标记语言或可扩展超文本标记语言中的标签和层叠样式表才能生效，甚至对 javascript 脚本都会有所影响。</li>
+<li>display：none；与 visibility： hidden 的区别是什么？<br>答：display：none； 使用该属性后，HTML 元素（对象）的宽度、高度等各种属性值都将“丢失”；<br>visibility：hidden； 使用该属性后，HTML 元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在，也即是说它仍具有高度、宽度等属性值。</li>
+</ol>
+<p><strong>二、css部分常见问题</strong></p>
+<ol>
+<li>CSS3选择器有哪些？答：标签选择器、属性选择器、伪类选择器、伪元素选择器。</li>
+<li>CSS3新特性有哪些？<br>A.颜色：新增 RGBA，HSLA 模式<br>B.文字阴影（text-shadow）<br>C.边框圆角:（border-radius）,边框阴影： box-shadow,边框图片：border-image<br>D.盒子模型：box-sizing<br>E.背景：background-size设置背景图片的尺寸 background-origin设置背景图片的原点 background-clip 设置背景图片的裁切区域，以”，”分隔可以设置多背景，用于自适应布局<br>F.渐变：linear-gradient、radial-gradient<br>G.  过渡：transition，可实现动画<br>H.  自定义动画<br>I.  在CSS3 中唯一引入的伪元素是：：selection.<br>J.  媒体查询，多栏布局<br>K.2D转换：transform：translate(x，y) rotate(x，y) skew(x，y) scale(x，y)<br>L.3D 转换</li>
+<li>CSS引入的方式有哪些? link 和@import的区别是?<br>答：内联 内嵌 外链 导入<br>区别 ：同时加载<br>前者无兼容性，后者 CSS2.1 以下浏览器不支持<br>Link支持使用 javascript 改变样式，后者不可</li>
+<li>描述css reset 的作用和用途？<br>答：Reset 重置浏览器的 css 默认属性 ，览器的品种不同，样式不同，然后重置，让他们统一。</li>
+<li>解释css sprites，如何使用？<br>答：Css 精灵图，把一堆小的图片整合到一张大的图片（png）上，减轻服务器对图片的请求数量。</li>
+</ol>
+<p><strong>JS常见经典面试问题</strong></p>
+<ol>
+<li>怎么实现跨域问题？<br>对于端口和协议的不同，只能通过后台来解决。我们要解决的是域名不同的问题<br>CORS:    header{“Access-Control-Allow-Origin： *”}<br>JSONP(JSON with Padding 填充式 JSON 或参数式 JSON)在 js 中，我们虽然不能直接用 XMLHttpRequest 请求不同域上的数据时，但是在页面上引入不同域上的 js 脚本文件却是可以的，jsonp 正是利用这个特性来实现的。<br>JSONP 由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数，而数据就是传入回调函数中的 JSON 数据。</li>
+<li>JSNOP 的优缺点<br>优点：它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest或 ActiveX 的支持；<br>能够直接访问响应文本，支持在浏览器与服务器之间双向通信<br>缺点：JSONP 是从其他域中加载代码执行。如果其他域不安全，很可能会在响应中夹带一些恶意代码，而此时除了完全放弃 JSONP 调用之外，没有办法追究。因此在使用不是你自己运维的 Web 服务时，一定得保证它安全可靠。<br>它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求；<br>它只支持跨域HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题</li>
+<li>谈谈js 作用域和闭包？<br>闭包的作用，就是保存自己私有的变量，通过提供的接口 （方法）给 外部使用，但外部不能直接访问该变量。</li>
+<li>什么是原型链？<br>答：Javascript 是面向对象的， 每个实例对象都有一个__proto__属性，该属性指向它的原型对象，这个实例对象的构造函数有一个原型属性prototype，与实例的__proto__属性指向同一个对象。当一个对象在查找一个属性的时，自身没有就会根据__proto__向它的原型进行查找，如果都没有，则向它的原型的原型继续查找，直到查到Object.prototype.<em>proto</em>为nul，这样也就形成了原型链。</li>
+<li>什么是事件冒泡/捕获？<br>答：事件冒泡：子元素事件的触发会影响父元素事件；<br>开关事件冒泡：A，开启事件冒泡：element.addEventListener(eventName，handler，false)；<br>B，关闭事件冒泡 ：假设传统方式事件的返回值为e，就可以通过e.stopPropagation()来关闭事件冒泡 ；<br>事件捕获 ：父元素的事件会影响子元素的事件；<br>开启事件捕获：element.addEventListener(eventName，handler，true)</li>
+<li>请说说事件委托机制？这样做有什么好处？<br>答：事件委托，就是某个事件本来该自己干的，但是自己不干，交给别人来干。就叫事 件委托 。<br>好处：A，提 高性能：列如，当有很多li 同时需要注册事件的时候，如果使用传统方法来 注册事件的 话，需要  给每 一个li 注册事  件。然而如果使用委托事件的 话，就只需要将事件委托给该一个元素即可。这样就能提高性能。<br>B，新添加的元素还会有之前的事件；</li>
+<li>请列举字符串操作的方法？<br>charAt(index) 方法返回指定索引位置处的字符 。超出有效范围的索引值返回空字符串；<br>slice(index) 方法返回字符串的片段；<br>substring() 方法返回位于String 对象中指定位置的子字符串。<br>substr 方法返回一个从指定位置开始的指定长度的子字符串。<br>indexOf 方法返回String 对象内第一次出 现子字符串位置。如果没有找到子字符串，则返回-1；<br>lastIndexOf 方法返回String 对象中字符串最后出现的位置。如果没有匹配 到子 字符串 ，则返 回-1；<br>search 方法返回与正则表达式查找内容匹配的第一个字符串的位置。<br>concat 方法返回字符串值，该值包含了两个或多个提 供的字符串的连接；<br>split 将一个 字符串分割为 子字符串  ，然后  将结 果作 为字符串数组返回；</li>
+<li>怎么理解 jQuery？<br>答：JQuery是继prototype 之后又一个优秀的 Javascript 库。它是轻量级的js库 ，它兼容 CSS3，还兼容各种浏览器（IE  6.0+， FF 1. 5+， Sa fari 2.  0+，Opera    9.0+），jQuery2. 0及后续版 本将不再支持 IE6/7/8  浏览器。<br>jQuery使用户能更方便地处理HTML（标准通用 标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX 交互。<br>jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。<br>jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。<br>jQuery是一个兼容多浏览器的javascript库，核心理念是write less，do more(写得更少，做得更多)。<br>jQuery的语法设计可以使开发更加便捷，例如操作文档对象、选择DOM元素、制作动画效果、事件处理、使用Ajax以及其他功能。除此以外，jQuery提供API让开发者编写插件。其模块化的使用方式使开发者可以很轻松的开发出功能强大的静态或动态网页。<br>jQuery，顾名思义 ，也就是 JavaScript 和查 询（Query），即是辅助JavaScript开发的库。</li>
+<li>表单验证传输的什么数据？明文还是暗文==加密？如何加密？是每一次传输数据，都是加密之后才传输吗？<br>答：概述：GET 是从服务器上请求数据，POST 是发送 数据到服务器。<br>事实上，GET 方法是把数据参数队列（query string）加到一个URL 上，值和表单是一一对应的。比如说，name=John。在队列里，值和表单用一个&amp;符号分开，空格用+号替换，特殊的符号转换 成十六 进制的代码。因为这一队列在 URL 里边，这 样队列的参数就能看得到，可以被记录  下来，或更改。通 常GET 方法还限制字符的大小（大概是256 字节）。<br>事实上 POST 方法可以没有时间限制的传递数据到服务器，用户在浏览器端是看不到这一过程的，所以POST方法比较适合用于发送一个保密的（比如信用 卡号）或者比较大量的数据到服务器。<br>区别：Post 是允许传输大 量数据的方法，而 Get 方法会 将所 要传 输的数据  附在网址后面，然后一起送达服务器，因此传送的数据量就会受到限制，但是执行效率却比Post 方法好。<br>总结：1、get 方式的安全性较Post 方式要 差些，包含机密 信息的话，建议用 Post数据提交方式；2、在做数据查  询时，建议用 Get 方式；而在做数据 添加、修改  或删除时，建议用 Post 方式；<br>所以：表达如果是向服务器传输数据(如帐号密码等)都是加密数据(post)，如果只是单单 想要从服务器获得数据或者传输的数据  并不重要， 可以直接使用明文方式传输( get )</li>
+<li>面向对象和类的区别？答：简单的说类是对象的模版。在js 中没有类， 所以在 js 中所谓 的 类 就是构造 函数， 对象就是由  构造 函数创建出来的实  例对象。面向对象就是使用面向对象的方式处理 问题， 面向对象是对面向过程进行封装。面向对象有三大特性抽象性， 需要通过核心数据和特定环境才能描述对象的具体意义<br>封装性，封装就是将数据和功能组合到一起，在js中对象就是键值对的集合，对象将属性和方法封装起来，方法将过程封装起来继承性，将别人的属性和 方法成 为自己的， 传统继 承基 于模板(类)， js 中继承基于 构造函数对象的概念，面向对象编程的程序实际就是多个对象的集合，我们可以把所有的事物都抽象 成对 象，在 程序设计中可以  看作：对  象=属性+方法。 属性就是对象的数据，而方法就是对象的行为。类的概念，类是对象的模版，而对象是类的实例化。举个例子，汽车设计图可以看作是类，而具体的汽车就是对象。再比如有一个类是表示人，然后可以通过人这个模版来实例化出张三、李四。。。</li>
+<li>在 JS 的计时器运行原理 是怎样 的， 为什么可以 触发计  时效果?计时器是  多线程吗?<br>答：1.javascript 引擎只有一个线程，强迫异步事件排队等待被执行。2.setTimeout 和 setInterval 本质上不同的地方是他们如何执行异步代码的。3.如果一个定时器正在执行的时候被阻塞了，那么它将会被推迟到下一个可能的执行点，这既是使得延迟时间有可能会超过声明定时器时设置的值。4.Interval 如果有  足够的时间来执行（大 于制定的 延迟 ），那么它将会无延迟  的一个紧接着一个执行。原理：计时器通过设定一定的时间段（ 毫秒 ）来异步 的执行一段代码。因为Javascript是一个单线程语言，计时器提供了一种绕过这种语言限制来执行代码的能力。总结：计时器是单线程的， 需要等待上一个执行完， 如果上一个没有执行完， 下一个需<br>要延迟执行， 知道上一个执行完</li>
+<li>如何查找构造函数和原型中的属性？<br>答：构造函数.prototype查看构造函数的原型属性实例对象.<strong>proto</strong>查看实例对象的构造函数的原型实例对象.<strong> proto  </strong> .constructor  查看实例对象的构造函数</li>
+<li>js 中一共有几种数据类型？<br>答：Undefined、Null、Boolean、Number 和 String。<br>还有一种复杂的数据类型 Object，Object 本质是一组无序的名值对组成的。</li>
+<li>call和apply的区别<br>答：它们的共同之处：都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。<br>”它们的不同之处：apply：最多只能有两个参数——新this 对象和一个数组 argArray。如果 argArray不是一个有效的数组或者不是arguments对象，那么将导致一个TypeError。如果没有提供argArray和 thisObj 任何一个参数，那么Global对象将被用作thisObj， 并且无法被传递任何参数。<br>call：则是直接的参数列表，主要用在 js 对象各方法互相调用的时候，使当前this实例指 针保持一致，或在特殊情况下需要改变 this 指针。如果没有提供thisObj参数，那么Global 对象被用作 thisObj。更简单  地说，appl  y和 call 功能一 样，只是传入的参数列表形式不同：如func.call(   func1，var1，var2，var 3)对应的 appl  y写法为：func.apply(func1，[var1，var2，var 3])。</li>
+<li>说说你对this 的理解？<br>答：this 是一个关键字，它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。1.作为纯粹的函数调用this 指向全局对象2.作为对象的方法调用this 指向调用对象3.作为构造函数被调用this 指向新的对象（new 会改变this的指向）4.apply调用this 指向apply方法的第一个参数</li>
+<li>js 的异步加载有哪几种方法？<br>答： 方案一：&lt;script&gt;标签的async=”async”属性。HTML5中新增的属性，Chrome、FF、IE9&amp;IE9+均支持（IE6~8不支持）。此外，这种方法不能保证脚本按顺序执行。<br>方案二 ：&lt;script&gt;标签的defer=”defer”属性。兼容所有浏览器。此外，这种方法可以确保所有设置defer属性的脚本按顺序执行。<br>方案三 ：AJAX eval（ 使 用AJAX得到脚本内容 ， 然 后 通 过eval  _r( xm lhttp.responseText)来运行脚本）。兼容所有浏览器。<br>方案四 ：iframe 方式（这里可以参照：iframe异步加载技术及性能中关于Meboo的部分）。兼容所有浏览器。</li>
+<li>列举浏览器对象模型 BOM 里常用的至少4个对象，并列 举window 对象的常用方法至少5个？<br>答：对象：Window location screen history navigator<br>方法：Alert() confirm() prompt() open() close()</li>
+<li>简述列举文档对象模型 DOM 里 document 的常用的查找访问节点的方法做简单说明？<br>document.getElementById根据元素id查找元素<br>document.getElementByName根 据 元 素name查找元素<br>document.getElementTagName 根据指定的元素名查找元素</li>
+<li>原 生JS的 window.onload 与 Jquery的$(document).ready(function (){})，$(function () {})有什么不同？<br>答：1.执行时间window.onload 必须等到页面内包括图片的所有元素加载完毕后才能执行。$(docu  ment).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。2.编写个数不同window.onload 不能同时编写多个，如果有多个 window.onload 方法，只会执行一个.$(document).ready()可以同时编写多个，并且都可以得到执行3.简化写法window.onload 没有简化写法$(document).ready(function(){})可以简写成$(function(){})；</li>
+<li>简述在 jQuery中.eq()和.get()的异同？<br>答：相同：get() ：取得其中一个匹配的元素 。数字序号表示取得第几个匹配的元素eq()：获取第N个元素，下标都是从 0开始， 用法 基本相同。<br>不同：eq 返回的是一个jquery对象；返回的是 jQuery对象，就可以继续 调用其他方法。get 返回的是一个html对象数组；不能调用 jQuery的其他方法；</li>
+</ol>
+<p><strong>相关的优化问题</strong></p>
+<ol>
+<li>请谈谈你对性能优化的认识？<br>减少http请求次数<br>80%的响应时间花在下载网页内容(images，stylesheets，javascripts，scripts，flash 等)。<br>减少请求次数是缩短响应时间的关键！可以通过简化页面设计来减少请求次数，但页面内容较多可以采用以下技巧。<br>减少DNS查询次数<br>DNS查询也消耗响应时间，如果我们的网页内容来自各个不同的domain(比如嵌入了开放广告，引用了外部图片或脚本)，那么客户端首次解析这些 domain 也需要消耗一定的时间。DNS 查询结果缓存在本地系统和浏览器中一段时间，所以 DNS 查询一般是对首次访问响应速度有所影响。下面是我清空本地 dns 后访问博客园主页 dns 的查询请求。<br>缓存Ajax<br>Ajax可以帮助我们异步的下载网页内容，但是有些网页内容即使是异步的，用户还是在等待它的返回结果，例如 ajax 的返回是用户联系人的下拉列表。所以我们还是要注意尽量应用以下规则提高 ajax 的响应速度。<br>延迟加载<br>这里讨论延迟加载需要我们知道我们的网页最初加载需要的最小内容集是什么。剩下的内容就可以推到延迟加载的集合中。Javascript 是典型的可以延迟加载内容。一个比较激进的做法是开发网页时先确保网页在没有 Javascript 的时候也可以基本工作，然后通过延迟加载脚本来完成一些高级的功能。</li>
+<li>如何避免XSS？<br>答：禁止危险脚本IE8 是第一款内置了XSS 脚本拦截保护的浏览器。谷歌的Chrome 也会紧随其后推出类似功能。这两款浏览器都会首先查看来自某个Web 服务器的脚本是否是恶意的—— 如果是，就拦截它。在今年4月的黑帽欧洲2010 大会上，研究专家DavidLindsay 和EduardoVela Nava 却演示 了一种可以 破除 这种拦截的 办法，不过谷歌已经修复  了Chrome 中的这个漏洞 。微软 则在 今年1 月（补丁MS10 -00 2）和3月（MS10 -018）也已解决了大部分问题，并计划在6月修复  第3个漏洞 ，所以在你读到这篇文章的时候，破除XSS 脚本拦截的问题可能已经完全解决了。Firefox 的用户则可以利用免费的NoScrpit 附加组件有选择地拦截脚本。比如说，你可以放行一段Flash 视频，而同时拦截该网站上的其他脚本组件。IE 和Chrome 在拦截可疑脚本方面没有这么细的粒度—— 它们是要么全拦截，要么全不拦截。NoScrpit 也有一个问题，那就是大多数用户并不喜欢 放行个别脚本的做法，因为这样会带来不便。不过拦截和放行今后可能会成为你的第  二天 性。你还可以对某个特定网站上的所有脚本进行认证，无论是 为了一次性访问还是今后的所有访问，这样的认证如今在IE 8 和chrome 中也可以做了，使得防范XSS 攻击实现更加可能。3、平时如何管理项目？答：所 谓项目  ，简 单地说，就是在既定的 资源 和要求的约束 下， 为实现 某种目 的而相互联系的一次性工作任务。一般来说，项目具有如下的基本特征：</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/20/面试题系列三/" data-id="cjxb3h9yl0036p3o498mch5t1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/21/面试/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          面试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/20/normalize-css/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">normalize.css</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/21/面试/">面试</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/normalize-css/">normalize.css</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/面试题/">面试题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 yj4me<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">档案</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

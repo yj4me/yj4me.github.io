@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>面试 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试">
+<meta property="og:url" content="http://yoursite.com/2019/06/21/面试/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-24T09:24:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试">
+<meta name="twitter:description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">档案</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/21/面试/" class="article-date">
+  <time datetime="2019-06-21T07:29:02.000Z" itemprop="datePublished">2019-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>比特大陆</strong></p>
+<ol>
+<li>自己实现v-model<br>v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。<br>v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：<br>text 和 textarea 元素使用 value 属性和 input 事件；<br>checkbox 和 radio 使用 checked 属性和 change 事件；<br>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+<li>vue与react的区别</li>
+<li>跨域解决方案(都问到了)</li>
+<li>数组的哪些方法会改变原数组？<br>push()、pop()、unshift()、shift()、splice()<br>reverse():返回该数组，sort()返回该数组<br>不改变原数组的方法：concat()、join()、slice()、toString()</li>
+<li>说一下普通函数中的this与箭头函数中的this的区别？<br>箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或 new.target。这些函数表达式更适用于那些本来需要匿名函数的地方，并且它们不能用作构造函数。<br>箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this。<br>由于箭头函数没有自己的this指针，通过 call()或apply()方法调用一个函数时，他们的第一个参数会被忽略。<br>没有参数的函数应该写成一对圆括号：() =&gt; {函数声明}<br>当只有一个参数时，圆括号是可选的：单一参数 =&gt; {函数声明} 或 (单一参数) =&gt; {函数声明}<br>多参：(参数1, 参数2, …, 参数N) =&gt; 表达式（单一） 或 (参数1, 参数2, …, 参数N) =&gt; { 函数声明 }</li>
+<li>vuex详解</li>
+</ol>
+<p><strong>云校电面</strong></p>
+<ol>
+<li><p>判断数据类型的方式:typeof、instanceof、constructor、toString().call()、jq中判断数据类型的方法<br>在 ECMAScript 规范中，共定义了 7 种数据类型，分为 基本类型 和 引用类型 两大类，如下所示：<br>基本类型：String、Number、Boolean、Symbol、Undefined、Null<br>引用类型：Object,引用类型除 Object 外，还包括 Function 、Array、RegExp、Date 等等。<br>typeof 是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示。<br>对于基本类型，除 null 以外，均可以返回正确的结果；null返回 object 类型。<br>对于引用类型，除 function 以外，一律返回 object 类型；function 返回function类型。<br>null 有属于自己的数据类型 Null ， 引用类型中的数组、日期、正则也都有属于自己的具体类型，而 typeof 对于这些类型的处理，只返回了处于其原型链最顶端的 Object 类型<br>instanceof原理： 因为A instanceof B 可以判断A是不是B的实例，返回一个布尔值，由构造类型判断出数据类型<br>toString.call([]); //[object Array]<br>arr.constructor === Array //true    原型上的属性实例也能直接使用（继承而来）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">jQuery提供了一系列工具方法，用来判断数据类型，以弥补JavaScript原生的typeof运算符的不足。以下方法对参数进行判断，返回一个布尔值。</span><br><span class="line">jQuery.isArray();是否为数组</span><br><span class="line">jQuery.isEmptyObject();是否为空对象  （不含可枚举属性）。</span><br><span class="line">jQuery.isFunction():是否为函数</span><br><span class="line">jQuery.isNumberic():是否为数字</span><br><span class="line">jQuery.isPlainObject():是否为使用“&#123;&#125;”或“new Object”生成对象，而不是浏览器原生提供的对象。</span><br><span class="line">jQuery.isWindow(): 是否为window对象；</span><br><span class="line">jQuery.isXMLDoc(): 判断一个DOM节点是否处于XML文档中。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自己实现一个数组倒叙排列，考虑时间复杂度和空间复杂度<br>(假设每个对象中有一个唯一的时间戳字段stamp)<br>方法一：arr.reverse()<br>方法二：数组倒叙遍历，时间复杂度：n<br>方法三：arr.sort()<br>方法四：冒泡排序法、二分排序法等<br>sort() 方法用原地算法对数组的元素进行排序，并返回数组。排序算法现在是稳定的。默认排序顺序是根据字符串Unicode码点。<br>由于它取决于具体实现，因此无法保证排序的时间和空间复杂性。<br>一句话总结就是: 原地算法不依赖额外的资源或者依赖少数的额外资源，仅依靠输出来覆盖输入的一种算法操作。<br>没有指明 compareFunction，比较的数字会先被转换为字符串<br>指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：小于0，正序；大于0，倒序，等于0，保持不变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//demo</span><br><span class="line">let arr = [&#123;stamp:1561196563527,name:&apos;张三1&apos;&#125;,&#123;stamp:1561196591134,name:&apos;张三2&apos;&#125;,&#123;stamp:1561196619297,name:&apos;张三3&apos;&#125;];</span><br><span class="line">arr.sort((a,b)=&gt;b.stamp-a.stamp)</span><br><span class="line"></span><br><span class="line">let sortArr = function(keyName)&#123;</span><br><span class="line">  return function(obj1,obj2)&#123;</span><br><span class="line">	return obj2[keyName]-obj1[keyName];//倒序</span><br><span class="line">	//return obj1[keyName]-obj2[keyName];//正序</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr.sort(sortArr(&apos;stamp&apos;)))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>http状态码</p>
+</li>
+<li>vue的生命周期<br>created 钩子可以用来在一个实例被创建之后执行代码：this` 指向 vm 实例,已经能获取到data中的数据<br>mounted<br>updated<br>destroyed<br>不要在选项属性或回调上使用箭头函数，比如 created: () =&gt; console.log(this.a) 或 vm.$watch(‘a’, newValue =&gt; this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到为止，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。</li>
+</ol>
+<p><strong>云校一面</strong></p>
+<ol>
+<li>选择器权重：标签选择器、属性选择器，并进行量化</li>
+<li>实现全屏品字布局</li>
+<li><p>实现一个深拷贝(递归实现)<br>当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes.<br>ie9+ 支持Array.isArray，属于es6语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj)&#123;</span><br><span class="line">  //判断要拷贝的是数组还是对象：数组进行数组拷贝，对象进行对象拷贝</span><br><span class="line">  //var objClone = obj.constructor == Array ? [] :&#123;&#125;;</span><br><span class="line">  //var objClone = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  var objClone = Array.isArray(obj)? []:&#123;&#125;;</span><br><span class="line">  if(obj &amp;&amp; typeof obj === &apos;object&apos;)&#123;</span><br><span class="line">	for(key in obj)&#123;</span><br><span class="line">	  if(obj.hasOwnProperty(key))&#123;</span><br><span class="line">		if(obj[key] &amp;&amp; typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">		  objClone[key] = deepClone(obj[key]);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">		  objClone[key] = obj[key];</span><br><span class="line">		&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找出一个字符串中出现次数最多的字符，并统计次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;asdfabcdaaa&apos;;</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">for(var i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">  if(obj[str.charAt(i)])&#123;</span><br><span class="line">	obj[str.charAt(i)]++;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">	obj[str.charAt(i)] = 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var maxCount = 0;//变量接收最大值</span><br><span class="line">var maxIndex = -1;</span><br><span class="line">for(var key in obj)&#123;</span><br><span class="line">  if(obj[key]&gt;maxCount)&#123;</span><br><span class="line">	maxCount = obj[key];</span><br><span class="line">	maxIndex = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;出现次数做多的是：&apos;+maxIndex+&apos;,出现次数：&apos;+maxCount);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function person(name)&#123;</span><br><span class="line">  if(name)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(this);</span><br><span class="line">  console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">person.prototype.name = &apos;parent&apos;;</span><br><span class="line">person();//Window,&apos;&apos;</span><br><span class="line">person(&apos;child&apos;);//window,child</span><br><span class="line">new person();//person,parent</span><br><span class="line">new person(&apos;child2&apos;);//person,child2</span><br><span class="line">person.call(window);//window,child</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>解析：直接打印window对象，内部本身有name:’’,这是window自带属性,如果绑定的不是name,假设是test，<br>person();//Window,undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = window.a = &quot;welcome to Here&quot;;</span><br><span class="line">function hello()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	function a()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	var a = &apos;soho&apos;;</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	let b = &apos;xxhashka&apos;;</span><br><span class="line">&#125;</span><br><span class="line">hello();</span><br></pre></td></tr></table></figure></p>
+<p>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：f a(){}、soho、reference error</p>
+<ol start="6">
+<li>将字符串转成金额格式：num.toLocaleString();//12,345,678</li>
+<li><p>返回100以内的所有素数（只有1和它本身两个因数的自然数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=100;i++)&#123;</span><br><span class="line">  for(var n=2;n&lt;=i;n++)&#123;</span><br><span class="line">	if(i%n==0&amp;&amp;i!=n)&#123;break;&#125;</span><br><span class="line">	else if(i==n)&#123;</span><br><span class="line">	  document.write(i+&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组排序</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxb3h9xx001rp3o4zv5va1ix" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/20/面试题系列三/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面试题系列三</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/21/面试/">面试</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/normalize-css/">normalize.css</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/面试题/">面试题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 yj4me<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">档案</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

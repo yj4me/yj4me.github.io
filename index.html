@@ -65,14 +65,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-js数据存储" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-面试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/18/js数据存储/" class="article-date">
-  <time datetime="2019-06-18T10:32:17.000Z" itemprop="datePublished">2019-06-18</time>
+    <a href="/2019/06/21/面试/" class="article-date">
+  <time datetime="2019-06-21T07:29:02.000Z" itemprop="datePublished">2019-06-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+    <a class="article-category-link" href="/categories/面试/">面试</a>
   </div>
 
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/js数据存储/">js面试题</a>
+      <a class="article-title" href="/2019/06/21/面试/">面试</a>
     </h1>
   
 
@@ -91,16 +91,307 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、数据存储：基本数据类型存储在栈中，引用数据类型存储在堆中<br>基本数据类型：string,boolean,number,null,undefined<br>引用数据类型：Object(Array,Function,RegExp等)<br>栈：后进先出，栈中存放基本数据或引用数据的地址<br>堆：是没有结构的，数据可任意存放，为复杂数据类型分配空间<br>2、实现一个深拷贝(递归实现)<br>当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes.<br>ie9+ 支持Array.isArray，属于es6语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj)&#123;</span><br><span class="line">  //判断要拷贝的是数组还是对象：数组进行数组拷贝，对象进行对象拷贝</span><br><span class="line">  //var objClone = obj.constructor == Array ? [] :&#123;&#125;;</span><br><span class="line">  //var objClone = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  var objClone = Array.isArray(obj)? []:&#123;&#125;;</span><br><span class="line">  if(obj &amp;&amp; typeof obj === &apos;object&apos;)&#123;</span><br><span class="line">	for(key in obj)&#123;</span><br><span class="line">	  if(obj.hasOwnProperty(key))&#123;</span><br><span class="line">		if(obj[key] &amp;&amp; typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">		  objClone[key] = deepClone(obj[key]);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">		  objClone[key] = obj[key];</span><br><span class="line">		&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3、数组返回本身的方法都有哪些？<br>push(),unshift()返回长度<br>pop(),shift()返回被删除的元素<br>reverse()会改变原来的数组<br>splice(index,num)//从指定索引处删除指定个数个元素，会改变原数组<br>返回新数组，原数组不改变的方法：slice(),map(),filter()<br>some(),include(),find(),findIndex()<br>4、如何遍历一个树？如何遍历一个一维数组成为一个树？</p>
+        <p><strong>比特大陆</strong></p>
+<ol>
+<li>自己实现v-model<br>v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。<br>v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：<br>text 和 textarea 元素使用 value 属性和 input 事件；<br>checkbox 和 radio 使用 checked 属性和 change 事件；<br>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+<li>vue与react的区别</li>
+<li>跨域解决方案(都问到了)</li>
+<li>数组的哪些方法会改变原数组？<br>push()、pop()、unshift()、shift()、splice()<br>reverse():返回该数组，sort()返回该数组<br>不改变原数组的方法：concat()、join()、slice()、toString()</li>
+<li>说一下普通函数中的this与箭头函数中的this的区别？<br>箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或 new.target。这些函数表达式更适用于那些本来需要匿名函数的地方，并且它们不能用作构造函数。<br>箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this。<br>由于箭头函数没有自己的this指针，通过 call()或apply()方法调用一个函数时，他们的第一个参数会被忽略。<br>没有参数的函数应该写成一对圆括号：() =&gt; {函数声明}<br>当只有一个参数时，圆括号是可选的：单一参数 =&gt; {函数声明} 或 (单一参数) =&gt; {函数声明}<br>多参：(参数1, 参数2, …, 参数N) =&gt; 表达式（单一） 或 (参数1, 参数2, …, 参数N) =&gt; { 函数声明 }</li>
+<li>vuex详解</li>
+</ol>
+<p><strong>云校电面</strong></p>
+<ol>
+<li><p>判断数据类型的方式:typeof、instanceof、constructor、toString().call()、jq中判断数据类型的方法<br>在 ECMAScript 规范中，共定义了 7 种数据类型，分为 基本类型 和 引用类型 两大类，如下所示：<br>基本类型：String、Number、Boolean、Symbol、Undefined、Null<br>引用类型：Object,引用类型除 Object 外，还包括 Function 、Array、RegExp、Date 等等。<br>typeof 是一个操作符，其右侧跟一个一元表达式，并返回这个表达式的数据类型。返回的结果用该类型的字符串(全小写字母)形式表示。<br>对于基本类型，除 null 以外，均可以返回正确的结果；null返回 object 类型。<br>对于引用类型，除 function 以外，一律返回 object 类型；function 返回function类型。<br>null 有属于自己的数据类型 Null ， 引用类型中的数组、日期、正则也都有属于自己的具体类型，而 typeof 对于这些类型的处理，只返回了处于其原型链最顶端的 Object 类型<br>instanceof原理： 因为A instanceof B 可以判断A是不是B的实例，返回一个布尔值，由构造类型判断出数据类型<br>toString.call([]); //[object Array]<br>arr.constructor === Array //true    原型上的属性实例也能直接使用（继承而来）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">jQuery提供了一系列工具方法，用来判断数据类型，以弥补JavaScript原生的typeof运算符的不足。以下方法对参数进行判断，返回一个布尔值。</span><br><span class="line">jQuery.isArray();是否为数组</span><br><span class="line">jQuery.isEmptyObject();是否为空对象  （不含可枚举属性）。</span><br><span class="line">jQuery.isFunction():是否为函数</span><br><span class="line">jQuery.isNumberic():是否为数字</span><br><span class="line">jQuery.isPlainObject():是否为使用“&#123;&#125;”或“new Object”生成对象，而不是浏览器原生提供的对象。</span><br><span class="line">jQuery.isWindow(): 是否为window对象；</span><br><span class="line">jQuery.isXMLDoc(): 判断一个DOM节点是否处于XML文档中。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自己实现一个数组倒叙排列，考虑时间复杂度和空间复杂度<br>(假设每个对象中有一个唯一的时间戳字段stamp)<br>方法一：arr.reverse()<br>方法二：数组倒叙遍历，时间复杂度：n<br>方法三：arr.sort()<br>方法四：冒泡排序法、二分排序法等<br>sort() 方法用原地算法对数组的元素进行排序，并返回数组。排序算法现在是稳定的。默认排序顺序是根据字符串Unicode码点。<br>由于它取决于具体实现，因此无法保证排序的时间和空间复杂性。<br>一句话总结就是: 原地算法不依赖额外的资源或者依赖少数的额外资源，仅依靠输出来覆盖输入的一种算法操作。<br>没有指明 compareFunction，比较的数字会先被转换为字符串<br>指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：小于0，正序；大于0，倒序，等于0，保持不变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//demo</span><br><span class="line">let arr = [&#123;stamp:1561196563527,name:&apos;张三1&apos;&#125;,&#123;stamp:1561196591134,name:&apos;张三2&apos;&#125;,&#123;stamp:1561196619297,name:&apos;张三3&apos;&#125;];</span><br><span class="line">arr.sort((a,b)=&gt;b.stamp-a.stamp)</span><br><span class="line"></span><br><span class="line">let sortArr = function(keyName)&#123;</span><br><span class="line">  return function(obj1,obj2)&#123;</span><br><span class="line">	return obj2[keyName]-obj1[keyName];//倒序</span><br><span class="line">	//return obj1[keyName]-obj2[keyName];//正序</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(arr.sort(sortArr(&apos;stamp&apos;)))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>http状态码</p>
+</li>
+<li>vue的生命周期<br>created 钩子可以用来在一个实例被创建之后执行代码：this` 指向 vm 实例,已经能获取到data中的数据<br>mounted<br>updated<br>destroyed<br>不要在选项属性或回调上使用箭头函数，比如 created: () =&gt; console.log(this.a) 或 vm.$watch(‘a’, newValue =&gt; this.myMethod())。因为箭头函数并没有 this，this 会作为变量一直向上级词法作用域查找，直至找到为止，经常导致 Uncaught TypeError: Cannot read property of undefined 或 Uncaught TypeError: this.myMethod is not a function 之类的错误。</li>
+</ol>
+<p><strong>云校一面</strong></p>
+<ol>
+<li>选择器权重：标签选择器、属性选择器，并进行量化</li>
+<li>实现全屏品字布局</li>
+<li><p>实现一个深拷贝(递归实现)<br>当检测Array实例时, Array.isArray 优于 instanceof,因为Array.isArray能检测iframes.<br>ie9+ 支持Array.isArray，属于es6语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj)&#123;</span><br><span class="line">  //判断要拷贝的是数组还是对象：数组进行数组拷贝，对象进行对象拷贝</span><br><span class="line">  //var objClone = obj.constructor == Array ? [] :&#123;&#125;;</span><br><span class="line">  //var objClone = obj instanceof Array ? [] : &#123;&#125;;</span><br><span class="line">  var objClone = Array.isArray(obj)? []:&#123;&#125;;</span><br><span class="line">  if(obj &amp;&amp; typeof obj === &apos;object&apos;)&#123;</span><br><span class="line">	for(key in obj)&#123;</span><br><span class="line">	  if(obj.hasOwnProperty(key))&#123;</span><br><span class="line">		if(obj[key] &amp;&amp; typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">		  objClone[key] = deepClone(obj[key]);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">		  objClone[key] = obj[key];</span><br><span class="line">		&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找出一个字符串中出现次数最多的字符，并统计次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;asdfabcdaaa&apos;;</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">for(var i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">  if(obj[str.charAt(i)])&#123;</span><br><span class="line">	obj[str.charAt(i)]++;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">	obj[str.charAt(i)] = 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var maxCount = 0;//变量接收最大值</span><br><span class="line">var maxIndex = -1;</span><br><span class="line">for(var key in obj)&#123;</span><br><span class="line">  if(obj[key]&gt;maxCount)&#123;</span><br><span class="line">	maxCount = obj[key];</span><br><span class="line">	maxIndex = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;出现次数做多的是：&apos;+maxIndex+&apos;,出现次数：&apos;+maxCount);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function person(name)&#123;</span><br><span class="line">  if(name)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(this);</span><br><span class="line">  console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">person.prototype.name = &apos;parent&apos;;</span><br><span class="line">person();//Window,&apos;&apos;</span><br><span class="line">person(&apos;child&apos;);//window,child</span><br><span class="line">new person();//person,parent</span><br><span class="line">new person(&apos;child2&apos;);//person,child2</span><br><span class="line">person.call(window);//window,child</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>解析：直接打印window对象，内部本身有name:’’,这是window自带属性,如果绑定的不是name,假设是test，<br>person();//Window,undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = window.a = &quot;welcome to Here&quot;;</span><br><span class="line">function hello()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	function a()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	var a = &apos;soho&apos;;</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	let b = &apos;xxhashka&apos;;</span><br><span class="line">&#125;</span><br><span class="line">hello();</span><br></pre></td></tr></table></figure></p>
+<p>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：f a(){}、soho、reference error</p>
+<ol start="6">
+<li>将字符串转成金额格式：num.toLocaleString();//12,345,678</li>
+<li><p>返回100以内的所有素数（只有1和它本身两个因数的自然数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=100;i++)&#123;</span><br><span class="line">  for(var n=2;n&lt;=i;n++)&#123;</span><br><span class="line">	if(i%n==0&amp;&amp;i!=n)&#123;break;&#125;</span><br><span class="line">	else if(i==n)&#123;</span><br><span class="line">	  document.write(i+&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组排序</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/js数据存储/" data-id="cjx2sv5sg000pyxo4brdsysj0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxb3h9xx001rp3o4zv5va1ix" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js面试题/">js面试题</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-面试题系列三" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/20/面试题系列三/" class="article-date">
+  <time datetime="2019-06-20T08:56:00.000Z" itemprop="datePublished">2019-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/20/面试题系列三/">面试题系列三</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、html部分常见问题</strong></p>
+<ol>
+<li>怎么让一个不定宽高的div，垂直水平居中？<br>方法一：表格布局<br>父盒子设置：display:table-cell;text-align:center;vertical-align:middle;<br>Div 设置： display:inline-block;vertical-align:middle；<br>方法二：绝对定位<br>父盒子设置：display:relative;<br>Div 设置： position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);</li>
+<li>position几个属性的作用？<br>position的常见四个属性值：relative,absolute,fixed,static(默认值)</li>
+<li>px、em、rem的区别？<br>px像素，绝对单位，相对于显示器屏幕分辨率而言的。em相对于当前对象内文本的字体尺寸，rem是css3新增，相对于html根元素的字体大小<br>除了 IE8 及更早版本外，所有浏览器均已支持 rem。</li>
+<li>BFC(块级格式化上下文)<br>A.  内部的 Box 会在垂直方向，一个接一个地放置。<br>B. Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box的margin 会发生重叠。<br>C.  每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。<br>D. BFC 的区域不会与 float box 重叠。<br>E.  BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br>F.  计算 BFC 的高度时，浮动元素也参与计算。<br>2）哪些元素会生成 BFC：<br>A.  根元素<br>B. float 属性不为 none<br>C. position 为 absolute 或 fixed<br>D. display 为 inline-block， table-cell，table-caption， flex， inline-flex<br>E. overflow 不为visible</li>
+<li>box-sizing、transition、translate分别是什么？<br>Box-sizing： 用来指定盒模型的大小的计算方式。主要分为boreder-box（从边框固定盒子大小）、content-box（从内容固定盒子大小）两种计算方式。<br>transition： 当前元素只要有“属性”发生变化时，可以平滑的进行过渡。通过 transtion-propety 设置过渡属性；<br>transtion-duration 设置过渡时间；<br>trantion-timing-function 设置过渡速度；<br>trantion-delay 设置过渡延时<br>translate：通过移动改变元素的位置；有 x、y、z 三个属性</li>
+<li>选择器优先级是怎样的？<br>！important&gt;行内样式&gt;id 选择器&gt;类选择器&gt;标签选择器&gt;通配符&gt;继承</li>
+<li>Iframe的作用？<br>Iframe是用来在网页中插入第三方页面，早期的页面使用 iframe 主要是用于导航栏这种很多页面都相同的部分，这样可以在切换页面的时候避免重复下载。<br>优点：便于修改，模块分离，像一些信息管理系统会用到。但现在基本上不推荐使用。除非特殊需要，一般不推荐使用。<br>缺点 :<br>（1）iframe 的创建比一般的 DOM 元素慢了 1-2 个数量级<br>（2）iframe 标签会阻塞页面的加载，如果页面的onload 事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好.在 Safari 和 Chrome 中可以通过 js 动态设置 iframe 的 src 属性来避免阻塞.<br>（3）iframe 对于 SEO 不友好，替代方案一般就是动态语言的 Incude 机制和 ajax 动态填充内容等.</li>
+<li>有一个导航栏在chrome 里面样式完好？在 IE 里文字都聚到一起了，是哪个兼容性问题？<br>用了 display：flex 属性，在 ie10 以下都是无效的。</li>
+<li>xhtml和 html 有什么区别？<br>答：HTML是一种基本的 WEB 网页设计语言，XHTML 是一个基于 XML 的置标语言最主要的不同：<br>XHTML元素必须被正确地嵌套。<br>XHTML元素必须被关闭。<br>标签名必须用小写字母。<br>XHTML文档必须拥有根元素。</li>
+<li>标签上title 与 alt 属性的区别是什么?<br>答：Alt 当图片不显示时，用文字代表。Title为该属性提供信息。</li>
+<li>改变元素的外边距用什么属性？改变元素的内填充用什么属性？<br>答：改变元素的外边距用 margin，改变元素的内填充用 padding。</li>
+<li>在新窗口打开链接的方法是？答：target：_blank。</li>
+<li>合理的页面布局中常听过结构与表现分离，那么结构是什么？表现是什么？<br>答：结构是 html，表现是 css。</li>
+<li>简述对Web 语义化的理解？<br>答：就是让浏览器更好的读懂你写的代码，在进行 HTML 结构、表现、行为设计时，尽量使用语义化的标签，使程序代码简介明了，易于进行Web 操作和网站 SEO，方便团队协作的一种标准，以图实现一种“无障碍”的  Web 开发。</li>
+<li>每个HTML 文件里开头都有个很重要的东西，Doctype，知道这是干什么的吗？<br>答：DOCTYPE 是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义来解析文档。只有确定了一个正确的文档类型，超文本标记语言或可扩展超文本标记语言中的标签和层叠样式表才能生效，甚至对 javascript 脚本都会有所影响。</li>
+<li>display：none；与 visibility： hidden 的区别是什么？<br>答：display：none； 使用该属性后，HTML 元素（对象）的宽度、高度等各种属性值都将“丢失”；<br>visibility：hidden； 使用该属性后，HTML 元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在，也即是说它仍具有高度、宽度等属性值。</li>
+</ol>
+<p><strong>二、css部分常见问题</strong></p>
+<ol>
+<li>CSS3选择器有哪些？答：标签选择器、属性选择器、伪类选择器、伪元素选择器。</li>
+<li>CSS3新特性有哪些？<br>A.颜色：新增 RGBA，HSLA 模式<br>B.文字阴影（text-shadow）<br>C.边框圆角:（border-radius）,边框阴影： box-shadow,边框图片：border-image<br>D.盒子模型：box-sizing<br>E.背景：background-size设置背景图片的尺寸 background-origin设置背景图片的原点 background-clip 设置背景图片的裁切区域，以”，”分隔可以设置多背景，用于自适应布局<br>F.渐变：linear-gradient、radial-gradient<br>G.  过渡：transition，可实现动画<br>H.  自定义动画<br>I.  在CSS3 中唯一引入的伪元素是：：selection.<br>J.  媒体查询，多栏布局<br>K.2D转换：transform：translate(x，y) rotate(x，y) skew(x，y) scale(x，y)<br>L.3D 转换</li>
+<li>CSS引入的方式有哪些? link 和@import的区别是?<br>答：内联 内嵌 外链 导入<br>区别 ：同时加载<br>前者无兼容性，后者 CSS2.1 以下浏览器不支持<br>Link支持使用 javascript 改变样式，后者不可</li>
+<li>描述css reset 的作用和用途？<br>答：Reset 重置浏览器的 css 默认属性 ，览器的品种不同，样式不同，然后重置，让他们统一。</li>
+<li>解释css sprites，如何使用？<br>答：Css 精灵图，把一堆小的图片整合到一张大的图片（png）上，减轻服务器对图片的请求数量。</li>
+</ol>
+<p><strong>JS常见经典面试问题</strong></p>
+<ol>
+<li>怎么实现跨域问题？<br>对于端口和协议的不同，只能通过后台来解决。我们要解决的是域名不同的问题<br>CORS:    header{“Access-Control-Allow-Origin： *”}<br>JSONP(JSON with Padding 填充式 JSON 或参数式 JSON)在 js 中，我们虽然不能直接用 XMLHttpRequest 请求不同域上的数据时，但是在页面上引入不同域上的 js 脚本文件却是可以的，jsonp 正是利用这个特性来实现的。<br>JSONP 由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数，而数据就是传入回调函数中的 JSON 数据。</li>
+<li>JSNOP 的优缺点<br>优点：它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest或 ActiveX 的支持；<br>能够直接访问响应文本，支持在浏览器与服务器之间双向通信<br>缺点：JSONP 是从其他域中加载代码执行。如果其他域不安全，很可能会在响应中夹带一些恶意代码，而此时除了完全放弃 JSONP 调用之外，没有办法追究。因此在使用不是你自己运维的 Web 服务时，一定得保证它安全可靠。<br>它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求；<br>它只支持跨域HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题</li>
+<li>谈谈js 作用域和闭包？<br>闭包的作用，就是保存自己私有的变量，通过提供的接口 （方法）给 外部使用，但外部不能直接访问该变量。</li>
+<li>什么是原型链？<br>答：Javascript 是面向对象的， 每个实例对象都有一个__proto__属性，该属性指向它的原型对象，这个实例对象的构造函数有一个原型属性prototype，与实例的__proto__属性指向同一个对象。当一个对象在查找一个属性的时，自身没有就会根据__proto__向它的原型进行查找，如果都没有，则向它的原型的原型继续查找，直到查到Object.prototype.<em>proto</em>为nul，这样也就形成了原型链。</li>
+<li>什么是事件冒泡/捕获？<br>答：事件冒泡：子元素事件的触发会影响父元素事件；<br>开关事件冒泡：A，开启事件冒泡：element.addEventListener(eventName，handler，false)；<br>B，关闭事件冒泡 ：假设传统方式事件的返回值为e，就可以通过e.stopPropagation()来关闭事件冒泡 ；<br>事件捕获 ：父元素的事件会影响子元素的事件；<br>开启事件捕获：element.addEventListener(eventName，handler，true)</li>
+<li>请说说事件委托机制？这样做有什么好处？<br>答：事件委托，就是某个事件本来该自己干的，但是自己不干，交给别人来干。就叫事 件委托 。<br>好处：A，提 高性能：列如，当有很多li 同时需要注册事件的时候，如果使用传统方法来 注册事件的 话，需要  给每 一个li 注册事  件。然而如果使用委托事件的 话，就只需要将事件委托给该一个元素即可。这样就能提高性能。<br>B，新添加的元素还会有之前的事件；</li>
+<li>请列举字符串操作的方法？<br>charAt(index) 方法返回指定索引位置处的字符 。超出有效范围的索引值返回空字符串；<br>slice(index) 方法返回字符串的片段；<br>substring() 方法返回位于String 对象中指定位置的子字符串。<br>substr 方法返回一个从指定位置开始的指定长度的子字符串。<br>indexOf 方法返回String 对象内第一次出 现子字符串位置。如果没有找到子字符串，则返回-1；<br>lastIndexOf 方法返回String 对象中字符串最后出现的位置。如果没有匹配 到子 字符串 ，则返 回-1；<br>search 方法返回与正则表达式查找内容匹配的第一个字符串的位置。<br>concat 方法返回字符串值，该值包含了两个或多个提 供的字符串的连接；<br>split 将一个 字符串分割为 子字符串  ，然后  将结 果作 为字符串数组返回；</li>
+<li>怎么理解 jQuery？<br>答：JQuery是继prototype 之后又一个优秀的 Javascript 库。它是轻量级的js库 ，它兼容 CSS3，还兼容各种浏览器（IE  6.0+， FF 1. 5+， Sa fari 2.  0+，Opera    9.0+），jQuery2. 0及后续版 本将不再支持 IE6/7/8  浏览器。<br>jQuery使用户能更方便地处理HTML（标准通用 标记语言下的一个应用）、events、实现动画效果，并且方便地为网站提供AJAX 交互。<br>jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。<br>jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。<br>jQuery是一个兼容多浏览器的javascript库，核心理念是write less，do more(写得更少，做得更多)。<br>jQuery的语法设计可以使开发更加便捷，例如操作文档对象、选择DOM元素、制作动画效果、事件处理、使用Ajax以及其他功能。除此以外，jQuery提供API让开发者编写插件。其模块化的使用方式使开发者可以很轻松的开发出功能强大的静态或动态网页。<br>jQuery，顾名思义 ，也就是 JavaScript 和查 询（Query），即是辅助JavaScript开发的库。</li>
+<li>表单验证传输的什么数据？明文还是暗文==加密？如何加密？是每一次传输数据，都是加密之后才传输吗？<br>答：概述：GET 是从服务器上请求数据，POST 是发送 数据到服务器。<br>事实上，GET 方法是把数据参数队列（query string）加到一个URL 上，值和表单是一一对应的。比如说，name=John。在队列里，值和表单用一个&amp;符号分开，空格用+号替换，特殊的符号转换 成十六 进制的代码。因为这一队列在 URL 里边，这 样队列的参数就能看得到，可以被记录  下来，或更改。通 常GET 方法还限制字符的大小（大概是256 字节）。<br>事实上 POST 方法可以没有时间限制的传递数据到服务器，用户在浏览器端是看不到这一过程的，所以POST方法比较适合用于发送一个保密的（比如信用 卡号）或者比较大量的数据到服务器。<br>区别：Post 是允许传输大 量数据的方法，而 Get 方法会 将所 要传 输的数据  附在网址后面，然后一起送达服务器，因此传送的数据量就会受到限制，但是执行效率却比Post 方法好。<br>总结：1、get 方式的安全性较Post 方式要 差些，包含机密 信息的话，建议用 Post数据提交方式；2、在做数据查  询时，建议用 Get 方式；而在做数据 添加、修改  或删除时，建议用 Post 方式；<br>所以：表达如果是向服务器传输数据(如帐号密码等)都是加密数据(post)，如果只是单单 想要从服务器获得数据或者传输的数据  并不重要， 可以直接使用明文方式传输( get )</li>
+<li>面向对象和类的区别？答：简单的说类是对象的模版。在js 中没有类， 所以在 js 中所谓 的 类 就是构造 函数， 对象就是由  构造 函数创建出来的实  例对象。面向对象就是使用面向对象的方式处理 问题， 面向对象是对面向过程进行封装。面向对象有三大特性抽象性， 需要通过核心数据和特定环境才能描述对象的具体意义<br>封装性，封装就是将数据和功能组合到一起，在js中对象就是键值对的集合，对象将属性和方法封装起来，方法将过程封装起来继承性，将别人的属性和 方法成 为自己的， 传统继 承基 于模板(类)， js 中继承基于 构造函数对象的概念，面向对象编程的程序实际就是多个对象的集合，我们可以把所有的事物都抽象 成对 象，在 程序设计中可以  看作：对  象=属性+方法。 属性就是对象的数据，而方法就是对象的行为。类的概念，类是对象的模版，而对象是类的实例化。举个例子，汽车设计图可以看作是类，而具体的汽车就是对象。再比如有一个类是表示人，然后可以通过人这个模版来实例化出张三、李四。。。</li>
+<li>在 JS 的计时器运行原理 是怎样 的， 为什么可以 触发计  时效果?计时器是  多线程吗?<br>答：1.javascript 引擎只有一个线程，强迫异步事件排队等待被执行。2.setTimeout 和 setInterval 本质上不同的地方是他们如何执行异步代码的。3.如果一个定时器正在执行的时候被阻塞了，那么它将会被推迟到下一个可能的执行点，这既是使得延迟时间有可能会超过声明定时器时设置的值。4.Interval 如果有  足够的时间来执行（大 于制定的 延迟 ），那么它将会无延迟  的一个紧接着一个执行。原理：计时器通过设定一定的时间段（ 毫秒 ）来异步 的执行一段代码。因为Javascript是一个单线程语言，计时器提供了一种绕过这种语言限制来执行代码的能力。总结：计时器是单线程的， 需要等待上一个执行完， 如果上一个没有执行完， 下一个需<br>要延迟执行， 知道上一个执行完</li>
+<li>如何查找构造函数和原型中的属性？<br>答：构造函数.prototype查看构造函数的原型属性实例对象.<strong>proto</strong>查看实例对象的构造函数的原型实例对象.<strong> proto  </strong> .constructor  查看实例对象的构造函数</li>
+<li>js 中一共有几种数据类型？<br>答：Undefined、Null、Boolean、Number 和 String。<br>还有一种复杂的数据类型 Object，Object 本质是一组无序的名值对组成的。</li>
+<li>call和apply的区别<br>答：它们的共同之处：都“可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。<br>”它们的不同之处：apply：最多只能有两个参数——新this 对象和一个数组 argArray。如果 argArray不是一个有效的数组或者不是arguments对象，那么将导致一个TypeError。如果没有提供argArray和 thisObj 任何一个参数，那么Global对象将被用作thisObj， 并且无法被传递任何参数。<br>call：则是直接的参数列表，主要用在 js 对象各方法互相调用的时候，使当前this实例指 针保持一致，或在特殊情况下需要改变 this 指针。如果没有提供thisObj参数，那么Global 对象被用作 thisObj。更简单  地说，appl  y和 call 功能一 样，只是传入的参数列表形式不同：如func.call(   func1，var1，var2，var 3)对应的 appl  y写法为：func.apply(func1，[var1，var2，var 3])。</li>
+<li>说说你对this 的理解？<br>答：this 是一个关键字，它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。1.作为纯粹的函数调用this 指向全局对象2.作为对象的方法调用this 指向调用对象3.作为构造函数被调用this 指向新的对象（new 会改变this的指向）4.apply调用this 指向apply方法的第一个参数</li>
+<li>js 的异步加载有哪几种方法？<br>答： 方案一：&lt;script&gt;标签的async=”async”属性。HTML5中新增的属性，Chrome、FF、IE9&amp;IE9+均支持（IE6~8不支持）。此外，这种方法不能保证脚本按顺序执行。<br>方案二 ：&lt;script&gt;标签的defer=”defer”属性。兼容所有浏览器。此外，这种方法可以确保所有设置defer属性的脚本按顺序执行。<br>方案三 ：AJAX eval（ 使 用AJAX得到脚本内容 ， 然 后 通 过eval  _r( xm lhttp.responseText)来运行脚本）。兼容所有浏览器。<br>方案四 ：iframe 方式（这里可以参照：iframe异步加载技术及性能中关于Meboo的部分）。兼容所有浏览器。</li>
+<li>列举浏览器对象模型 BOM 里常用的至少4个对象，并列 举window 对象的常用方法至少5个？<br>答：对象：Window location screen history navigator<br>方法：Alert() confirm() prompt() open() close()</li>
+<li>简述列举文档对象模型 DOM 里 document 的常用的查找访问节点的方法做简单说明？<br>document.getElementById根据元素id查找元素<br>document.getElementByName根 据 元 素name查找元素<br>document.getElementTagName 根据指定的元素名查找元素</li>
+<li>原 生JS的 window.onload 与 Jquery的$(document).ready(function (){})，$(function () {})有什么不同？<br>答：1.执行时间window.onload 必须等到页面内包括图片的所有元素加载完毕后才能执行。$(docu  ment).ready()是 DOM 结构绘制完毕后就执行，不必等到加载完毕。2.编写个数不同window.onload 不能同时编写多个，如果有多个 window.onload 方法，只会执行一个.$(document).ready()可以同时编写多个，并且都可以得到执行3.简化写法window.onload 没有简化写法$(document).ready(function(){})可以简写成$(function(){})；</li>
+<li>简述在 jQuery中.eq()和.get()的异同？<br>答：相同：get() ：取得其中一个匹配的元素 。数字序号表示取得第几个匹配的元素eq()：获取第N个元素，下标都是从 0开始， 用法 基本相同。<br>不同：eq 返回的是一个jquery对象；返回的是 jQuery对象，就可以继续 调用其他方法。get 返回的是一个html对象数组；不能调用 jQuery的其他方法；</li>
+</ol>
+<p><strong>相关的优化问题</strong></p>
+<ol>
+<li>请谈谈你对性能优化的认识？<br>减少http请求次数<br>80%的响应时间花在下载网页内容(images，stylesheets，javascripts，scripts，flash 等)。<br>减少请求次数是缩短响应时间的关键！可以通过简化页面设计来减少请求次数，但页面内容较多可以采用以下技巧。<br>减少DNS查询次数<br>DNS查询也消耗响应时间，如果我们的网页内容来自各个不同的domain(比如嵌入了开放广告，引用了外部图片或脚本)，那么客户端首次解析这些 domain 也需要消耗一定的时间。DNS 查询结果缓存在本地系统和浏览器中一段时间，所以 DNS 查询一般是对首次访问响应速度有所影响。下面是我清空本地 dns 后访问博客园主页 dns 的查询请求。<br>缓存Ajax<br>Ajax可以帮助我们异步的下载网页内容，但是有些网页内容即使是异步的，用户还是在等待它的返回结果，例如 ajax 的返回是用户联系人的下拉列表。所以我们还是要注意尽量应用以下规则提高 ajax 的响应速度。<br>延迟加载<br>这里讨论延迟加载需要我们知道我们的网页最初加载需要的最小内容集是什么。剩下的内容就可以推到延迟加载的集合中。Javascript 是典型的可以延迟加载内容。一个比较激进的做法是开发网页时先确保网页在没有 Javascript 的时候也可以基本工作，然后通过延迟加载脚本来完成一些高级的功能。</li>
+<li>如何避免XSS？<br>答：禁止危险脚本IE8 是第一款内置了XSS 脚本拦截保护的浏览器。谷歌的Chrome 也会紧随其后推出类似功能。这两款浏览器都会首先查看来自某个Web 服务器的脚本是否是恶意的—— 如果是，就拦截它。在今年4月的黑帽欧洲2010 大会上，研究专家DavidLindsay 和EduardoVela Nava 却演示 了一种可以 破除 这种拦截的 办法，不过谷歌已经修复  了Chrome 中的这个漏洞 。微软 则在 今年1 月（补丁MS10 -00 2）和3月（MS10 -018）也已解决了大部分问题，并计划在6月修复  第3个漏洞 ，所以在你读到这篇文章的时候，破除XSS 脚本拦截的问题可能已经完全解决了。Firefox 的用户则可以利用免费的NoScrpit 附加组件有选择地拦截脚本。比如说，你可以放行一段Flash 视频，而同时拦截该网站上的其他脚本组件。IE 和Chrome 在拦截可疑脚本方面没有这么细的粒度—— 它们是要么全拦截，要么全不拦截。NoScrpit 也有一个问题，那就是大多数用户并不喜欢 放行个别脚本的做法，因为这样会带来不便。不过拦截和放行今后可能会成为你的第  二天 性。你还可以对某个特定网站上的所有脚本进行认证，无论是 为了一次性访问还是今后的所有访问，这样的认证如今在IE 8 和chrome 中也可以做了，使得防范XSS 攻击实现更加可能。3、平时如何管理项目？答：所 谓项目  ，简 单地说，就是在既定的 资源 和要求的约束 下， 为实现 某种目 的而相互联系的一次性工作任务。一般来说，项目具有如下的基本特征：</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/20/面试题系列三/" data-id="cjxb3h9yl0036p3o498mch5t1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-normalize-css" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/20/normalize-css/" class="article-date">
+  <time datetime="2019-06-20T07:51:06.000Z" itemprop="datePublished">2019-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html基础/">html基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/20/normalize-css/">normalize.css</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/necolas/normalize.css/blob/master/normalize.css" target="_blank" rel="noopener">normalize.css</a><br>normalize.css与reset.css的差别与官方讲解:<br>Normalize.css是一个小的CSS文件，它在HTML元素的默认样式中提供了更好的跨浏览器一致性。<br>Normalize.css是CSS重置的替代方法。</p>
+<ol>
+<li>Normalize.css保留有用的默认值:当元素在不同浏览器中具有不同的默认样式时，normalize.css旨在使这些样式保持一致并尽可能符合现代标准。</li>
+<li>Normalize.css纠正了常见的错误:它修复了常见的桌面和移动浏览器错误，这些错误超出了重置范围。这包括HTML5元素的显示设置，校正 font-size预格式文本，IE9中的SVG溢出以及浏览器和操作系统中许多与表单相关的错误。</li>
+<li>Normalize.css不会使您的调试工具混乱:使用重置时常见的烦恼是浏览器CSS调试工具中显示的大型继承链。</li>
+<li>Normalize.css是模块化的:该项目分为相对独立的部分，使您可以轻松查看哪些元素需要特定样式。</li>
+<li>Normalize.css有大量文档:您可以了解每行代码的作用，包含的原因，浏览器之间的差异</li>
+</ol>
+<p>图片默认间距：几个img标签放在一起的时候，有些浏览器会有默认的间距.解决方案：float：left；<br>跟图片的对齐方式有关.解决方案：vertal-align:top;<br>二、IE6下浮动元素设置了margin双边距问题：解决方案：将浮动元素设置display：inline;为了能设置宽高，display:table。<br>三、设置最小高度（&lt;10px）,在IE6，IE7不起效<br>解决方案：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。出现这个问题的原因是IE8之前的浏览器都会给标签一个最小默认的行高的高度。即使你的标签是空的，这个标签的高度还是会达到默认的行高。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/20/normalize-css/" data-id="cjxb3h9xb000op3o468kwoy58" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-面试题系列二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/20/面试题系列二/" class="article-date">
+  <time datetime="2019-06-20T03:32:30.000Z" itemprop="datePublished">2019-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/20/面试题系列二/">面试题系列二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、link和@import的区别</p>
+<ol>
+<li>从属关系区别<br>@import是 CSS 提供的语法规则，只有导入样式表的作用；link是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。</li>
+<li>加载顺序区别<br>加载页面时，link标签引入的 CSS 被同时加载；@import引入的 CSS 将在页面加载完毕后被加载。</li>
+<li>兼容性区别<br>@import是 CSS2.1 才有的语法，故只可在 IE5+ 才能识别；link标签作为 HTML 元素，不存在兼容性问题。</li>
+<li>DOM可控性区别<br>可以通过 JS 操作 DOM ，插入link标签来改变样式；由于 DOM 方法是基于文档的，无法使用@import的方式插入样式。</li>
+<li>权重区别(该项有争议，下文将详解)<br>link引入的样式权重大于@import引入的样式。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/20/面试题系列二/" data-id="cjxb3h9y1001yp3o49aqob1kk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/面试题/" class="article-date">
+  <time datetime="2019-06-19T05:45:43.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/面试题/">面试题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、Object有哪些方法？<br>Object.assign()：通过复制一个或多个对象来创建一个新的对象<br>Object.create()：使用指定的原型对象和属性创建一个新对象<br>Object.keys()：返回一个包含所有给定对象自身可枚举属性名称的数组<br>Object.getOwnPropertyNames()：返回一个数组，它包含了指定对象所有的可枚举或不可枚举的属性名<br>Object.values()：返回给定对象自身可枚举值的数组<br>Object.entries()：返回给定对象自身可枚举属性的 [key, value] 数组<br>demo： for（let [key, value] of Object.entries(object1)）<br>Object.is()：比较两个值是否相同。所有 NaN 值都相等（这与==和===不同）<br>Object.freeze()：冻结对象：其他代码不能删除或更改任何属性<br>Object.defineProperties()： 给对象添加多个属性并分别指定它们的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">Object.defineProperties(obj, &#123;</span><br><span class="line">  &apos;property1&apos;: &#123;</span><br><span class="line">    value: true,</span><br><span class="line">    writable: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &apos;property2&apos;: &#123;</span><br><span class="line">    value: &apos;Hello&apos;,</span><br><span class="line">    writable: false</span><br><span class="line">  &#125;</span><br><span class="line">  // etc. etc.</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Object.defineProperty()： 给对象添加一个属性并指定该属性的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">// 显式</span><br><span class="line">Object.defineProperty(obj, &quot;key&quot;, &#123;</span><br><span class="line">  enumerable: false,</span><br><span class="line">  configurable: false,</span><br><span class="line">  writable: false,</span><br><span class="line">  value: &quot;static&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>2、对象的属性描述符：数据描述符和存取描述符<br>数据描述符：configurable、enumerable、value、writable<br>存取描述符：configurable、enumerable、get、set(默认undefined)<br>当且仅当该属性的 configurable 为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 false。<br>当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中。默认为 false。<br>当且仅当该属性的writable为true时，value才能被赋值运算符改变。默认为 false。<br>存取描述符是由getter-setter函数对描述的属性。描述符必须是这两种形式之一；不能同时是两者。<br>3、for…in与for…of的区别<br>for in是ES5标准，遍历key.适用于对象<br>for in遍历对象存在的问题：<br>for in 可以遍历到原型上的方法和属性,hasOwnPropery方法可以判断某属性是否是该对象的实例属性<br>for in遍历数组存在的问题：<br>1.index索引为字符串型数字，不能直接进行几何运算<br>2.遍历顺序有可能不是按照实际数组的内部顺序<br>3.使用for in会遍历数组所有的可枚举属性(包括length)，包括原型<br>for of是ES6标准，遍历value。适用于数组<br>for…of用于对象会报错，’obj’ is not iterable不是一个 可迭代对象.<br>在JavaScript中, Object 是不可迭代的，除非它们实现了迭代协议. 因此, 你不能使用 for…of 来迭代对象的属性.<br>一个可迭代对象可以是一个内置可迭代类型，如Array, String 或 Map,<br>4、arr.find()与arr.filter()的区别，以及都没有匹配上时返回什么？<br>find()函数用来查找目标元素，找到就返回该元素，找不到返回undefined。返回的是对象，如遇到重复的值只会返回第一次出现的值<br>filter过滤 返回全部结果仍然是数组。如果没有任何数组元素通过测试，则返回空数组<br>5、es6中的Reflect和proxy：Reflect对象与Proxy对象一样，也是 ES6 为了操作对象而提供的新 API<br>Reflect对象的设计目的：</p>
+<ol>
+<li>将Object对象的一些明显属于语言内部的方法（比如Object.defineProperty），放到Reflect对象上。</li>
+<li>修改某些Object方法的返回结果，让其变得更合理</li>
+<li>让Object操作都变成函数行为。某些Object操作是命令式，比如name in obj和delete obj[name]，而Reflect.has(obj, name)和Reflect.deleteProperty(obj, name)让它们变成了函数行为。<br>Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。<br>Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。<br>Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与处理器对象的方法相同。<br>处理器对象(handler)用来自定义代理对象(Proxy)的各种可代理操作。<br>Proxy 对象用于定义基本操作的自定义行为（如属性查找，赋值，枚举，函数调用等）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//target:用Proxy包装的目标对象（可以是任何类型的对象，包括原生数组，函数，甚至另一个代理）</span><br><span class="line">//handler:一个对象，其属性是当执行一个操作时定义代理的行为的函数。</span><br><span class="line">let p = new Proxy(target, handler);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Reflect不是一个函数对象，因此它是不可构造的。<br>Reflect的所有属性和方法都是静态的（就像Math对象）。<br>6、Object.defineProperty()的作用：创建属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, &quot;key&quot;, &#123;</span><br><span class="line">  enumerable: false,</span><br><span class="line">  configurable: false,</span><br><span class="line">  writable: false,</span><br><span class="line">  value: &quot;static&quot;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Object.defineProperty(o, &quot;b&quot;, &#123;</span><br><span class="line">  get : function()&#123;</span><br><span class="line">    return bValue;</span><br><span class="line">  &#125;,</span><br><span class="line">  set : function(newValue)&#123;</span><br><span class="line">    bValue = newValue;</span><br><span class="line">  &#125;,</span><br><span class="line">  enumerable : true,</span><br><span class="line">  configurable : true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>7、笔试题：ajax的缺点，共享数据，cookie<br>ajax的缺点：<br>1.AJAX干掉了Back和History功能，即对浏览器机制的破坏：在动态更新页面的情况下，用户无法回到前一个页面状态<br>2.AJAX的安全问题：会暴露比以前更多的数据和服务器逻辑<br>3.对搜索引擎支持较弱<br>4.破坏程序的异常处理机制，给我们的调试带来了很大的困难<br>5.AJAX不能很好支持移动设备<br>6.客户端过肥，太多客户端代码造成开发上的成本<br>session共享问题：<br>项目使用nginx做负载均衡，这样同一个IP访问同一个页面会被分配到不同的服务器上，此时就涉及到一个session共享的问题。因为session是在服务器端保存的，如果用户跳转到其他服务器的话，session就会丢失，一般情况下，session不可跨服务器而存在。于是就有了分布式系统的session共享问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/面试题/" data-id="cjxb3h9y30021p3o4e93cp270" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li></ul>
 
     </footer>
   </div>
@@ -141,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/vue虚拟dom/" data-id="cjx2sv5sv0018yxo4360ypdxe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/vue虚拟dom/" data-id="cjxb3h9xj0012p3o499yxlitl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li></ul>
@@ -185,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/vue源码分析/" data-id="cjx2sv5sq000yyxo4sjv7f7w3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/vue源码分析/" data-id="cjxb3h9xh000yp3o45xxznrrf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue源码/">vue源码</a></li></ul>
@@ -229,7 +520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/js面向对象/" data-id="cjx2sv5so000vyxo4fpd57y77" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/17/js面向对象/" data-id="cjxb3h9xe000sp3o4dirp7q5e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js面向对象/">js面向对象</a></li></ul>
@@ -273,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/vue详解/" data-id="cjx2sv5st0014yxo4hc8iuhpc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/17/vue详解/" data-id="cjxb3h9xk0014p3o432fdycsf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li></ul>
@@ -323,194 +614,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/dom事件/" data-id="cjx2sv5s10005yxo49epjynjh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/17/dom事件/" data-id="cjxb3h9wq0004p3o4e0p2zh0u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css盒模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/17/css盒模型/" class="article-date">
-  <time datetime="2019-06-17T07:08:04.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html基础/">html基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/css盒模型/">css盒模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>css盒模型：标准盒模型／IE盒模型</li>
-<li>两种盒模型的区别：标准盒模型width只包括内容部分，IE盒模型width＝内容＋padding＋border</li>
-<li>css如何设置这两种样式：box-sizing:content-box/border-box</li>
-<li>js获取盒模型的宽高:dom.style.width/height(只能取到行内样式的宽高)<br>dom.currentStyle.width/height(只有ie支持)<br>window.getComputedStyle(dom).width/height(兼容性好)<br>dom.getBoundingClientRect().width/height（计算元素的绝对位置）</li>
-<li>解释边距重叠<br>父子元素边距重叠，兄弟元素边距重叠</li>
-<li>什么是BFC?原理？创建BFC的几种方式,使用场景<br>BFC（块级格式化上下文：边距重叠解决方案）<br>原理：1.BFC元素不会与浮动元素重叠2.浮动的子元素参与计算高度<br>设置overflow:auto/hidden，float不为none，position:absolute/fixed,display:,</li>
-<li>清除浮动（BFC清除浮动）</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/css盒模型/" data-id="cjx2sv5rr0000yxo4jg6up9d4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jQuery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/15/jQuery源码解析/" class="article-date">
-  <time datetime="2019-06-15T10:21:13.000Z" itemprop="datePublished">2019-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jQuery/">jQuery</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/15/jQuery源码解析/">jQuery源码解析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>jQuery2.0之后不再支持IE6/7/8,从2.1版开始jQuery支持通过AMD模块化分<br>jQuery的核心理念：The Write Less,Do More.<br><span><img src="/img/jquery.png" alt="image"></span><br>任何库与框架设计的第一个要点就是解决命名空间与变量污染的问题。jQuery就是利用了JavaScript函数作用域的特性，采用立即调用表达式包裹了自身的方法来解决这个问题。<br>jQuery兼容的具体策略：针对高级的浏览器，我们当前很乐意用DOMContentLoaded事件了，省时省力。<br>对于旧的IE,document.attachEvent<br><strong>jQuery的整体架构：</strong><br>变量、常用正则初始化<br>工具方法$.fn<br>$.ready()<br>复杂选择器Sizzle<br>回调对象：对函数的统一管理$.Callback()<br>延迟对象：对异步的统一管理$.Deferred()<br>浏览器功能性检测$.support<br>数据存储$.data<br>队列方法：执行顺序的管理queue()|dequeue()<br>对元素属性的操作：attr()、prop()、val()、addClass()等<br>事件操作的相关方法：on()、trigger()<br>DOM操作<br>样式操作：css()<br>Ajax()<br>动画animate()<br>位置和尺寸offset()<br>模块化<br>window.jQuery = window.$ = jQuery;<br><strong>jQuery 闭包结构</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 用一个函数域包起来，就是所谓的沙箱</span><br><span class="line">// 在这里边 var 定义的变量，属于这个函数域内的局部变量，避免污染全局</span><br><span class="line">// 把当前沙箱需要的外部变量通过函数参数引入进来</span><br><span class="line">// 只要保证参数对内提供的接口的一致性，你还可以随意替换传进来的这个参数</span><br><span class="line">(<span class="keyword">function</span>(window, undefined) &#123;</span><br><span class="line"> // jQuery 代码</span><br><span class="line">&#125;)(window);</span><br><span class="line">jQuery 具体的实现，都被包含在了一个立即执行函数构造的闭包里面，为了不污染全局作用域，只在后面暴露 $ 和 jQuery 这 2 个变量给外界，尽量的避开变量冲突。</span><br><span class="line">jQuery 在这里有一个针对压缩优化细节，使用这种书写方式，在代码压缩的时候，window 和 undefined 都可以压缩为 1 个字母并且确保它们就是 window 和 undefined。</span><br><span class="line">// 压缩策略</span><br><span class="line">// w -&gt; windwow , u -&gt; undefined</span><br><span class="line">(<span class="keyword">function</span>(w, u) &#123;</span><br><span class="line"> </span><br><span class="line">&#125;)(window);</span><br></pre></td></tr></table></figure></p>
-<p><strong>内部实现：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">jQuery = <span class="keyword">function</span>(selector, context) &#123;</span><br><span class="line">       // The jQuery object is actually just the init constructor <span class="string">'enhanced'</span></span><br><span class="line">       // 看这里，实例化方法 jQuery() 实际上是调用了其拓展的原型方法 jQuery.fn.init</span><br><span class="line">       <span class="built_in">return</span> new jQuery.fn.init(selector, context, rootjQuery);</span><br><span class="line">   &#125;,</span><br><span class="line"></span><br><span class="line">   // jQuery.prototype 即是 jQuery 的原型，挂载在上面的方法，即可让所有生成的 jQuery 对象使用</span><br><span class="line">   jQuery.fn = jQuery.prototype = &#123;</span><br><span class="line">       // 实例化化方法，这个方法可以称作 jQuery 对象构造器</span><br><span class="line">       init: <span class="keyword">function</span>(selector, context, rootjQuery) &#123;</span><br><span class="line">           // ... </span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   // 这一句很关键，也很绕</span><br><span class="line">   // jQuery 没有使用 new 运算符将 jQuery 实例化，而是直接调用其函数</span><br><span class="line">   // 要实现这样,那么 jQuery 就要看成一个类，且返回一个正确的实例</span><br><span class="line">   // 且实例还要能正确访问 jQuery 类原型上的属性与方法</span><br><span class="line">   // jQuery 的方式是通过原型传递解决问题，把 jQuery 的原型传递给jQuery.prototype.init.prototype</span><br><span class="line">   // 所以通过这个方法生成的实例 this 所指向的仍然是 jQuery.fn，所以能正确访问 jQuery 类原型上的属性与方法</span><br><span class="line">   jQuery.fn.init.prototype = jQuery.fn;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/15/jQuery源码解析/" data-id="cjx2sv5s9000fyxo4tstd8vtg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-html页面布局" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/14/html页面布局/" class="article-date">
-  <time datetime="2019-06-14T02:03:42.000Z" itemprop="datePublished">2019-06-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html基础/">html基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/14/html页面布局/">html页面布局</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>一、高度已知（200px），左右宽度固定300px，右边自适应的三栏布局</strong><br>1、浮动：先写浮动的元素（左右），再写标准文档流元素<br>2、绝对定位：中间设置left：300px；right：300px；相当于设置了宽度<br>3、flex布局<br>4、table布局：父元素设置display：table；子元素设置display:table-cell;<br>5、网格布局：父元素设置display:grid;grid-template-columns:300px auto 300px;grid-template-rows:200px;<br><strong>二、高度未知，左右宽度固定300px，右边自适应，且左右高度能够跟着父容器变化的三栏布局</strong><br>1、flex布局<br>2、table布局：父元素设置display：table；子元素设置display:table-cell;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/14/html页面布局/" data-id="cjx2sv5s4000ayxo445n493e8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html页面布局/">html页面布局</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-面试基础知识总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/11/面试基础知识总结/" class="article-date">
-  <time datetime="2019-06-11T01:15:56.000Z" itemprop="datePublished">2019-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/面试/">面试</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/11/面试基础知识总结/">面试基础知识总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>基础流程：</strong><a href="/2019/06/14/html%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/">页面布局</a>－<a href="/2019/06/17/css盒模型/">css盒模型</a>－<a href="/2019/06/17/dom事件/">DOM事件</a>－HTTP协议-面向对象－原型链－通信－安全－算法</p>
-<p><strong><strong>http协议类：请求－应答模式</strong></strong><br>1、 http协议的主要特点：简单快速，灵活，无连接，无状态<br>2、 http报文的组成部分：<br>请求报文：请求行(GET/HTTP/1.1)＋请求头(一系列键值对)＋空行＋请求体<br>响应报文：状态行(HTTP/1.1 200 OK)＋响应头＋空行＋响应体<br>3、 http方法：get/post/put/delete/head<br>4、 post和get的区别:<br>浏览器回退重复提交(post)／无害(get)<br>get产生的url可以被收藏，post不可以<br>get会被浏览器主动缓存，post不会<br>get url有长度限制，因此不能携带太多参数<br>get没有post安全，不能存放敏感信息<br>get请求通过url传递参数，post放在request body中<br>5、 http状态码<br>1XX：<br>2xx：200,206<br>3xx：301(Moved Permanently),304(Not Modified)<br>4xx：400,401,403,404,405<br>5xx：500,503<br>6、 持久链接／管线化：Keep-alive(1.1)</p>
-<p><strong><strong><a href="http://www.imooc.com/article/40074" target="_blank" rel="noopener">通信类</a></strong></strong><br>1、同源策略及限制：协议、域名、端口号相同<br>跨域：跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。<br>跨域带来的问题：cookie、localstorage和indexDB无法读取；dom无法获得；ajax请求不能发送<br>有三个标签允许跨域请求资源：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=XXX&gt; 2.&lt;link href=XXX&gt; 3.&lt;script src=XXX&gt;</span><br></pre></td></tr></table></figure></p>
-<p>所有的跨域都必须经过信息提供方的允许才能完成<br>2、前后端如何通信：ajax、webSocket、cors<br>3、<a href="/2018/05/28/第21章Ajax-Comet/">如何创建Ajax</a><br>4、跨域通信的几种方式:jsonp,hash,postMessage,webSocket,cors<br>jsonp只支持get请求<br>实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。<br>响应头添加header(“Access-Control-Allow-Origin:*”）；默认地址是网站本身<br>cors要求前端浏览器&gt;10,<br>websocket在建立时需要借助http协议，连接建立好之后client与server之间的双向通信就与http无关了<br>原生websocketAPI使用起来不太方便，我们使用Socket.io</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/面试基础知识总结/" data-id="cjx2sv5t5001ryxo4yz1tctla" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 
     </footer>
   </div>
@@ -544,7 +651,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面试题/">js面试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -554,7 +661,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/js面试题/" style="font-size: 10px;">js面试题</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -576,23 +683,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/18/js数据存储/">js面试题</a>
+            <a href="/2019/06/21/面试/">面试</a>
           </li>
         
           <li>
-            <a href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
+            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
           </li>
         
           <li>
-            <a href="/2019/06/18/vue源码分析/">vue源码分析</a>
+            <a href="/2019/06/20/normalize-css/">normalize.css</a>
           </li>
         
           <li>
-            <a href="/2019/06/17/js面向对象/">面向对象</a>
+            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
           </li>
         
           <li>
-            <a href="/2019/06/17/vue详解/">vue详解</a>
+            <a href="/2019/06/19/面试题/">面试题</a>
           </li>
         
       </ul>
