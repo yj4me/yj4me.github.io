@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>webpack原理分析 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="参考文章  基本概念：Entry(入口),Module(模块),Chunk(代码块),Loader,Plugin 流程概述webpack从启动到结束依次执行以下操作：初始化参数－开始编译－确定入口－编译模版－完成编译模版－输出资源1.初始化参数:从配置文件(默认webpack.config.js)和shell语句中读取与合并参数，得出最终的参数2.开始编译(compile):用上一步得到的参数初始">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack原理分析">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/webpack原理分析/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="参考文章  基本概念：Entry(入口),Module(模块),Chunk(代码块),Loader,Plugin 流程概述webpack从启动到结束依次执行以下操作：初始化参数－开始编译－确定入口－编译模版－完成编译模版－输出资源1.初始化参数:从配置文件(默认webpack.config.js)和shell语句中读取与合并参数，得出最终的参数2.开始编译(compile):用上一步得到的参数初始">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-25T08:06:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack原理分析">
+<meta name="twitter:description" content="参考文章  基本概念：Entry(入口),Module(模块),Chunk(代码块),Loader,Plugin 流程概述webpack从启动到结束依次执行以下操作：初始化参数－开始编译－确定入口－编译模版－完成编译模版－输出资源1.初始化参数:从配置文件(默认webpack.config.js)和shell语句中读取与合并参数，得出最终的参数2.开始编译(compile):用上一步得到的参数初始">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">档案</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack原理分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/25/webpack原理分析/" class="article-date">
+  <time datetime="2019-06-25T07:41:54.000Z" itemprop="datePublished">2019-06-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/打包工具/">打包工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack原理分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://segmentfault.com/a/1190000017890529?utm_source=tag-newest" target="_blank" rel="noopener">参考文章</a></p>
+<ol>
+<li>基本概念：Entry(入口),Module(模块),Chunk(代码块),Loader,Plugin</li>
+<li>流程概述<br>webpack从启动到结束依次执行以下操作：初始化参数－开始编译－确定入口－编译模版－完成编译模版－输出资源<br>1.初始化参数:从配置文件(默认webpack.config.js)和shell语句中读取与合并参数，得出最终的参数<br>2.开始编译(compile):用上一步得到的参数初始化compile对象，加载所有配置的插件，通过执行对象的run方法开始执行编译<br>3.确定入口：根据配置中的entry找出所有的入口文件<br>4.编译模块：从入口文件出发，调用所有配置的Loader对模块进行翻译,再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过处理<br>5.完成编译模块：经过第四步之后，得到了每个模块被翻译之后的最终内容以及他们之间的依赖关系<br>6.输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的chunk，再将每个chunk转换成一个单独的文件加入输出列表中，这是可以修改输出内容的最后机会<br>7.输出完成：在确定好输出内容后，根据配置(webpack.config.js &amp;&amp; shell)确定输出的路径和文件名，将文件的内容写入文件系统中(fs)<br>以上过程中，webpack会在特定的时间点广播特定的事件，插件监听事件并执行相应的逻辑，并且插件可以调用webpack提供的api改变webpack的运行结果</li>
+<li>流程细节</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/25/webpack原理分析/" data-id="cjxdtflco0026kgo4bjjhhde4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/06/25/关于图片/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于图片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/21/面试/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/图片/">图片</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/打包工具/">打包工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片分类/">图片分类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/广联达/">广联达</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/新东方相关资料搜集/">新东方相关资料搜集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比特大陆、云校/">比特大陆、云校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片分类/" style="font-size: 10px;">图片分类</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/广联达/" style="font-size: 10px;">广联达</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/新东方相关资料搜集/" style="font-size: 10px;">新东方相关资料搜集</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/比特大陆、云校/" style="font-size: 10px;">比特大陆、云校</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/26/面试预演－新东方/">面试预演－新东方</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/26/数据结构/">数据结构</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/26/面试-广联达/">面试-广联达</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/25/关于图片/">关于图片</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/25/webpack原理分析/">webpack原理分析</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 yj4me<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">档案</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

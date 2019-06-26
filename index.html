@@ -65,6 +65,254 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-面试预演－新东方" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/面试预演－新东方/" class="article-date">
+  <time datetime="2019-06-26T10:00:06.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/面试预演－新东方/">面试预演－新东方</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>数据类型详解<br>基本数据类型的值本身无法改变，对数据的操作都是返回了一个新的。<br>Boolean:表示一个逻辑实体(true/false)<br>Null:只有一个值null<br>数据类型 “symbol” 是一种原始数据类型，该类型的性质在于这个类型的值可以用来创建匿名的对象属性。<br>在 JavaScript 运行时环境中，一个符号类型值可以通过调用函数 Symbol() 创建，这个函数动态地生成了一个匿名，唯一的值。<br>Symbol类型唯一合理的用法是用变量存储 symbol的值，然后使用存储的值创建对象属性。以下示例使用”var”创建一个变量来保存 symbol。<br>不可枚举，不会出现在for in循环中<br>因为是匿名的，也不会出现在 Object.getOwnPropertyNames()的返回数组里<br>这个属性可以通过创建时的原始 symbol 值访问到，或者通过遍历 “Object.getOwnPropertySymbols()” 返回的数组。<br>内置函数 “Symbol()” 是一个不完整的类，当作为函数调用时会返回一个 symbol 值，试图通过语法 “new Symbol()” 作为构造函数调用时会抛出一个错误。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  myPrivateMethod  = Symbol();</span><br><span class="line">this[myPrivateMethod] = function() &#123;...&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Object：<br>ECMAScript定义的对象中有两种属性：数据属性和访问器属性。<br>数据属性的特性:<br>configurable(false:属性不能被删除，并且 除了 [[Value]] 和 [[Writable]] 以外的特性都不能被改变)，默认值：true<br>enumerable(false:不可枚举)，默认值：true<br>writable(false:[[Value]]不能被改变),默认值：true<br>访问器属性的特性:<br>configurable(false:属性不能被删除，并且不能被转变成一个数据属性)，默认值：true<br>get(函数对象或者 undefined),默认：undefined<br>set(函数对象或者 undefined),默认：undefined<br>JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式</p>
+<ol start="2">
+<li>继承和闭包<br>闭包的例子：柯里化函数<br>可以使用闭包来模拟私有方法</li>
+<li><p><a href="https://blog.csdn.net/Roobert_Chao/article/details/88835813" target="_blank" rel="noopener">html文档加载顺序</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加载 html 文档，从上向下解析，&lt;head&gt; 中的 link 是并行加载的，加载完成后开始 &lt;body&gt; 中的渲染，避免闪屏情况的出现，&lt;script&gt; 同步进行加载和解析，出现阻塞加载的情况。</span><br><span class="line">浏览器加载 一个 html 页面，并行进行解析（生成 DOM 树）和渲染。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>href与src的区别<br>1.src 是指向物件的来源地址，是引入。在 img、script、iframe 等元素上使用。<br>2.href 是超文本引用，指向需要连结的地方，是与该页面有关联的，是引用。在 link和a 等元素上使用。<br>简而言之，src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
+</li>
+<li>http与https的区别</li>
+<li>lazyload的原理</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/面试预演－新东方/" data-id="cjxdtflck001zkgo4ljp4r8zr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新东方相关资料搜集/">新东方相关资料搜集</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/数据结构/" class="article-date">
+  <time datetime="2019-06-26T07:28:24.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js基础/">js基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/数据结构/">数据结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>js中的数据存储</strong><br>基本数据类型：存储在栈(Stack)中<br>引用数据类型：存储在堆(heap)中</p>
+<ol>
+<li>堆和栈的定义<br>堆是动态分配内存，内存大小不一，也不会自动释放<br>栈是自动分配相对固定大小的内存空间，并由系统自动释放</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/数据结构/" data-id="cjxdtflcw002jkgo48d5kd62w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-面试-广联达" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/面试-广联达/" class="article-date">
+  <time datetime="2019-06-26T06:57:43.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/面试-广联达/">面试-广联达</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>map和forEach的区别？<br>forEach(): 针对每一个元素执行提供的函数(executes a provided function once for each array element)。<br>map(): 创建一个新的数组，其中每一个元素由调用数组中的每一个元素执行提供的函数得来(creates a new array with the results of calling a provided function on every element in the calling array)。<br>区别：<br>forEach()返回值是undefined，不可以链式调用；map()返回新的数组，可以链式调用(arr.map(item=&gt;item*2).filter(item=&gt;item&gt;5))<br>没有办法终止或者跳出forEach()循环，除非抛出异常，所以想执行一个数组是否满足什么条件，返回布尔值，可以用一般的for循环实现，或者用Array.every()或者Array.some();</li>
+<li><p>自己实现map函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function myMap(fn)&#123;</span><br><span class="line">  var newArr = [];</span><br><span class="line">  for(let i=0;i&lt;this.length;i++)&#123;</span><br><span class="line">	newArr.push(fn(this[i],i,this))</span><br><span class="line">  &#125;</span><br><span class="line">  return newArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数防抖与函数截流</p>
+</li>
+<li><p>延伸：自定义实现数组中的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//实现forEach</span><br><span class="line">function myForEach(fn)&#123;	</span><br><span class="line">  for(let i=0;i&lt;this.length;i++)&#123;</span><br><span class="line">	fn(this[i],i,this)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/面试-广联达/" data-id="cjxdtflcc001okgo4l4sjiek4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/广联达/">广联达</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-关于图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/25/关于图片/" class="article-date">
+  <time datetime="2019-06-25T11:51:53.000Z" itemprop="datePublished">2019-06-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/图片/">图片</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/25/关于图片/">关于图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、bmp(BitMap:位图)：最早期的图片格式，无压缩<br>2、jpeg:有损压缩、体积小、加载快、不支持透明<br>适用场景：大的背景图、轮播图、banner图<br>3、png:无损压缩、质量高、体积大、支持透明<br>4、gif：支持动画<br>5、svg：矢量图，不失真，兼容性好<br>6、base64:文本文件，依赖编码，小图标解决方案<br>和雪碧图一样，Base64 图片的出现，也是为了减少加载网页图片时对服务器的请求次数，从而提升网页性能。Base64 是作为雪碧图的补充而存在的。<br>因为 Base64 编码后，图片大小会膨胀为源文件的 4/3，如果将大图编码到 HTML 或者 CSS 中，这样后者的体积增加，即便减少了 HTTP 请求，也无法弥补庞大的体积带来的性能开销。<br>7、webp：仅 Chrome、UC 等几家浏览器支持，所以局限性较大，目前暂不考虑使用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/25/关于图片/" data-id="cjxdtflcm0022kgo4vu26o92v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片分类/">图片分类</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webpack原理分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/25/webpack原理分析/" class="article-date">
+  <time datetime="2019-06-25T07:41:54.000Z" itemprop="datePublished">2019-06-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/打包工具/">打包工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/25/webpack原理分析/">webpack原理分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://segmentfault.com/a/1190000017890529?utm_source=tag-newest" target="_blank" rel="noopener">参考文章</a></p>
+<ol>
+<li>基本概念：Entry(入口),Module(模块),Chunk(代码块),Loader,Plugin</li>
+<li>流程概述<br>webpack从启动到结束依次执行以下操作：初始化参数－开始编译－确定入口－编译模版－完成编译模版－输出资源<br>1.初始化参数:从配置文件(默认webpack.config.js)和shell语句中读取与合并参数，得出最终的参数<br>2.开始编译(compile):用上一步得到的参数初始化compile对象，加载所有配置的插件，通过执行对象的run方法开始执行编译<br>3.确定入口：根据配置中的entry找出所有的入口文件<br>4.编译模块：从入口文件出发，调用所有配置的Loader对模块进行翻译,再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过处理<br>5.完成编译模块：经过第四步之后，得到了每个模块被翻译之后的最终内容以及他们之间的依赖关系<br>6.输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的chunk，再将每个chunk转换成一个单独的文件加入输出列表中，这是可以修改输出内容的最后机会<br>7.输出完成：在确定好输出内容后，根据配置(webpack.config.js &amp;&amp; shell)确定输出的路径和文件名，将文件的内容写入文件系统中(fs)<br>以上过程中，webpack会在特定的时间点广播特定的事件，插件监听事件并执行相应的逻辑，并且插件可以调用webpack提供的api改变webpack的运行结果</li>
+<li>流程细节</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/25/webpack原理分析/" data-id="cjxdtflco0026kgo4bjjhhde4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-面试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/21/面试/" class="article-date">
@@ -95,7 +343,7 @@
 <ol>
 <li>自己实现v-model<br>v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。<br>v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：<br>text 和 textarea 元素使用 value 属性和 input 事件；<br>checkbox 和 radio 使用 checked 属性和 change 事件；<br>select 字段将 value 作为 prop 并将 change 作为事件。</li>
 <li>vue与react的区别</li>
-<li>跨域解决方案(都问到了)</li>
+<li>跨域解决方案(都问到了)－<a href="/2019/06/11/面试基础知识总结/">通信类</a></li>
 <li>数组的哪些方法会改变原数组？<br>push()、pop()、unshift()、shift()、splice()<br>reverse():返回该数组，sort()返回该数组<br>不改变原数组的方法：concat()、join()、slice()、toString()</li>
 <li>说一下普通函数中的this与箭头函数中的this的区别？<br>箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或 new.target。这些函数表达式更适用于那些本来需要匿名函数的地方，并且它们不能用作构造函数。<br>箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this。<br>由于箭头函数没有自己的this指针，通过 call()或apply()方法调用一个函数时，他们的第一个参数会被忽略。<br>没有参数的函数应该写成一对圆括号：() =&gt; {函数声明}<br>当只有一个参数时，圆括号是可选的：单一参数 =&gt; {函数声明} 或 (单一参数) =&gt; {函数声明}<br>多参：(参数1, 参数2, …, 参数N) =&gt; 表达式（单一） 或 (参数1, 参数2, …, 参数N) =&gt; { 函数声明 }</li>
 <li>vuex详解</li>
@@ -127,23 +375,26 @@
 </li>
 </ol>
 <p>解析：直接打印window对象，内部本身有name:’’,这是window自带属性,如果绑定的不是name,假设是test，<br>person();//Window,undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = window.a = &quot;welcome to Here&quot;;</span><br><span class="line">function hello()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	function a()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	var a = &apos;soho&apos;;</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	let b = &apos;xxhashka&apos;;</span><br><span class="line">&#125;</span><br><span class="line">hello();</span><br></pre></td></tr></table></figure></p>
-<p>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>结果：f a(){}、soho、reference error</p>
+<p>结果：f a(){}、soho、reference error。<br>只声明不赋值之前，它是不会覆盖同名函数的，赋了值就变成一个具体值了，之后再去按方法调用的话会报错，提示不是一个方法<br>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ol start="6">
 <li>将字符串转成金额格式：num.toLocaleString();//12,345,678</li>
 <li><p>返回100以内的所有素数（只有1和它本身两个因数的自然数）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=100;i++)&#123;</span><br><span class="line">  for(var n=2;n&lt;=i;n++)&#123;</span><br><span class="line">	if(i%n==0&amp;&amp;i!=n)&#123;break;&#125;</span><br><span class="line">	else if(i==n)&#123;</span><br><span class="line">	  document.write(i+&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数组排序</p>
+<li><p>数组排序：冒泡排序、快排、希尔排序<br>冒泡排序：嵌套循环(如果前面的数字比后面大，交换位置(借助一个临时变量))<br>快速排序：借助中间某个值，小于它的放到左边数组，大于它的放到右边数组，递归调用</p>
 </li>
+<li>异步执行方案（一道算法题，让说出console.log的打印顺序）</li>
+<li>项目中的优化</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxb3h9xx001rp3o4zv5va1ix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxdtflci001wkgo4v3njz2dz" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/比特大陆、云校/">比特大陆、云校</a></li></ul>
+
     </footer>
   </div>
   
@@ -236,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/20/面试题系列三/" data-id="cjxb3h9yl0036p3o498mch5t1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/20/面试题系列三/" data-id="cjxdtflcv002gkgo4krxbghwr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +536,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/20/normalize-css/" data-id="cjxb3h9xb000op3o468kwoy58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/20/normalize-css/" data-id="cjxdtflbn000okgo4w65uw9r9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li></ul>
@@ -335,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/20/面试题系列二/" data-id="cjxb3h9y1001yp3o49aqob1kk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/20/面试题系列二/" data-id="cjxdtflcr0029kgo4lgdwhx4c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
@@ -388,236 +639,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/面试题/" data-id="cjxb3h9y30021p3o4e93cp270" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/面试题/" data-id="cjxdtflct002dkgo4g10aqoii" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue虚拟dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/18/vue虚拟dom/" class="article-date">
-  <time datetime="2019-06-18T09:27:26.000Z" itemprop="datePublished">2019-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/vue虚拟dom/">vue虚拟dom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在vue2.0渲染层做了根本性的改动，那就是引入了虚拟dom。vdom算法是基于snabbdom算法所做的修改<br>每次更新视图的时候都会使用vdom<br>源码分析：vm实例挂载到dom上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">src/core/instance/init.js</span><br><span class="line">Vue.prototype._init = function()&#123;</span><br><span class="line">	vm.$mount(vm.$options.el)</span><br><span class="line">&#125;</span><br><span class="line">实际上调用的是src/core/instance/lifecycle.js中的mountComponent方法</span><br><span class="line">export function mountComponent(vm:Component,el:?Element,hydrating?:boolean):Component&#123;</span><br><span class="line">	vm.$el = el;</span><br><span class="line">	if(!vm.$options.render)&#123;</span><br><span class="line">		vm.$options.render = createEmptyVNode</span><br><span class="line">	&#125;</span><br><span class="line">	callHook(vm,&apos;beforeMount&apos;)</span><br><span class="line">	let updateComponent</span><br><span class="line">	if(process.env.NODE_ENV !== &apos;production&apos; &amp;&amp; config.performance &amp;&amp; mark)&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		updateComponent = ()=&gt;&#123;</span><br><span class="line">			//vm._render方法会返回一个新的vnode,vm._update就用这个新的vnode和老的vnode进行diff</span><br><span class="line">			vm._update(vm._render(),hydrating)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//在求值的过程中this.value = this.lazy ? undefined : this.get()，</span><br><span class="line">	//会调用this.get()方法，因此在实例化的过程当中Dep.target会被设为这个watcher</span><br><span class="line">	vm._watcher = new Watcher(vm,updateComponent,noop)</span><br><span class="line">	hydrating = false</span><br><span class="line">	if(vm.$vnode == null)&#123;</span><br><span class="line">		vm._isMounted = true</span><br><span class="line">		callHook(vm,&apos;mounted&apos;)</span><br><span class="line">	&#125;</span><br><span class="line">	return vm</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>一旦model中的响应式的数据发生了变化，这些响应式的数据所维护的dep数组便会调用dep.notify()方法完成所有依赖遍历执行的工作，这里面就包括了视图的更新即updateComponent方法，它是在mountComponent中的定义的。<br>完成视图的更新工作事实上就是调用了vm._update方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype._update = function(vnode: VNode, hydrating?: boolean)&#123;</span><br><span class="line">	const vm:Component = this</span><br><span class="line">	if(vm._isMounted)&#123;</span><br><span class="line">		callHook(vm,&apos;beforeUpdate&apos;)</span><br><span class="line">	&#125;</span><br><span class="line">	const prevEL = vm.$el</span><br><span class="line">	const prevVnode = vm._vnode</span><br><span class="line">	const prevActiveInstance = activeInstance</span><br><span class="line">	activeInstance = vm</span><br><span class="line">	//新的vnode</span><br><span class="line">	vm._vnode = vnode</span><br><span class="line">	if(!prevVnode)&#123;</span><br><span class="line">		vm.$el = vm.__patch__(vm.$el,vnode,bydrating,false,</span><br><span class="line">		vm.$options._parentElm,</span><br><span class="line">		vm.$options._refElm</span><br><span class="line">		)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		vm.$el = vm.__patch__(prevVnode,vnode)</span><br><span class="line">	&#125;</span><br><span class="line">	activeInstance = prevActiveInstance</span><br><span class="line">	if(prevEL)&#123;</span><br><span class="line">		prevEL.__vue__ = null</span><br><span class="line">	&#125;</span><br><span class="line">	if(vm.$el)&#123;</span><br><span class="line">		vm.$el.__vue__ = vm</span><br><span class="line">	&#125;</span><br><span class="line">	if(vm.$vnode &amp;&amp; vm.$parent &amp;&amp; vm.$node === vm.$parent._node)&#123;</span><br><span class="line">		vm.$parent.$el = vm.$el</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/vue虚拟dom/" data-id="cjxb3h9xj0012p3o499yxlitl" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue源码分析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/18/vue源码分析/" class="article-date">
-  <time datetime="2019-06-18T03:51:21.000Z" itemprop="datePublished">2019-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/vue源码分析/">vue源码分析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>3.0</strong><br>vue3.0的代码从flow迁移到typescript上了，用typescript完全重写了。<br>代码重构的点：内部模块节藕；编译器重构，插件化设计<br>平台支持：vue3.0将会提供一个custom render API:createRender.createRender函数更好的支持开发者去用vue语法写支持多端的代码<br>vue hooks 大概率取代了mixins<br>会有一个专门的版本自动降级为用Object.defineproperty()的get、set拦截处理数据，并对一些新的ie不支持的用法做出警告<br><strong><strong>2.x</strong></strong><br>基本模块：准备工作－数据驱动－组件化－响应式原理－编译－扩展－vuerouter－vuex<br><strong><strong>一、Flow</strong></strong><br><strong><strong>Flow是Facebook出品的JavaScript静态类型检查工具。Vue源码利用了Flow做静态类型检查。</strong></strong><br>目的：解决编译阶段不被发现，运行阶段才能暴露的隐患bug，增强代码的可维护性和可读性<br>引入时机：Vue2.0重构时，已包含功能(es6语法，eslint代码风格)<br>选择Flow的原因：Babel和ESLint都有对应的Flow插件以支持语法，改动成本小<br>类型检查是当前动态语言的发展趋势，在编译期尽早发现(由类型错误引起的)bug<br>类型检查方式：类型推断、类型注释(Array&lt;T&gt;,string | number)<br>若想任意类型 T 可以为 null 或者 undefined，只需类似如下写成 ?T 的格式即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//类型推断:下面的写法编译时就会报错，不会等到方法调用时</span><br><span class="line">function split(str)&#123;</span><br><span class="line">	return str.split(&apos;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">split(11);//split方法只接收string类型</span><br><span class="line"></span><br><span class="line">//类型注释，即给参数或变量设置默认类型</span><br><span class="line">function add(x:number,y:number):number&#123;</span><br><span class="line">	return x+y</span><br><span class="line">&#125;</span><br><span class="line">var arr:Array&lt;number&gt; = [1,2,3];</span><br><span class="line">var b:string | number = 123;</span><br></pre></td></tr></table></figure></p>
-<p><strong><strong>二、源码目录结构src</strong></strong><br>compiler(编译相关):把模版解析成ast语法树，ast语法树优化，代码生成等功能。编译是一项耗性能的工作，推荐使用webpack、vue-loader在构建时编译(离线编译)，不要等到运行时<br>core(核心代码)：内置组件、全局API封装、vue实例化，观察者，虚拟dom、工具函数<br>platforms(各平台的支持)：两个目录代表两个主要入口<br>server(服务器端渲染)<br>sfc(.vue文件解析)<br>shared(共享文件)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/vue源码分析/" data-id="cjxb3h9xh000yp3o45xxznrrf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue源码/">vue源码</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js面向对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/17/js面向对象/" class="article-date">
-  <time datetime="2019-06-17T10:59:34.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/js基础/">js基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/js面向对象/">面向对象</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.类与实例：类的声明，创建实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//传统方式：构造函数</span><br><span class="line">function Student(name)&#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//es6语法</span><br><span class="line">class Student&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.继承的原理：原型链<br>3.实现继承的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//借助构造函数实现继承:不能继承原型对象中的方法(部分继承)</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//借助原型链实现继承:不能实现隔离，修改原型链上的属性就会所有实例都改变</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line"></span><br><span class="line">//组合方式：构造函数执行2次</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line"></span><br><span class="line">//组合优化：此时创建的实例既是child的实例，又是parent的实例，区别不了，实例的constructor指向parent</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = Parent.prototype;</span><br><span class="line"></span><br><span class="line">//最终版</span><br><span class="line">function Parent()&#123;</span><br><span class="line">  this.name = &quot;parent&quot;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">  Parent.call(this);//或apply</span><br><span class="line">  this.age = &apos;18&apos;;</span><br><span class="line">&#125;</span><br><span class="line">//创建中间对象</span><br><span class="line">Child.prototype = Object.create(Parent.prototype)</span><br><span class="line">Child.prototype.constructor = Child;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/js面向对象/" data-id="cjxb3h9xe000sp3o4dirp7q5e" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js面向对象/">js面向对象</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/17/vue详解/" class="article-date">
-  <time datetime="2019-06-17T10:02:46.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/vue详解/">vue详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、<a href="https://cn.vuejs.org/v2/guide/comparison.html" target="_blank" rel="noopener">vue与其它框架的异同点</a><br>与react相似之处：<br>使用虚拟dom；提供了响应式(Reactive)和组件化(Composable)的视图组件；<br>将注意力集中保持在核心库，而将其它功能如路由和全局状态管理交给相关的库<br>2、<a href="https://router.vuejs.org/zh/guide/essentials/navigation.html" target="_blank" rel="noopener">vue-router之编程式导航</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 命名的路由</span><br><span class="line">router.push(&#123; name: &apos;user&apos;, params: &#123; userId: &apos;123&apos; &#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 带查询参数，变成 /register?plan=private</span><br><span class="line">router.push(&#123; path: &apos;register&apos;, query: &#123; plan: &apos;private&apos; &#125;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>注意：如果提供了 path，params 会被忽略<br>3、vuex<br>Vuex 背后的基本思想：通过定义和隔离状态管理中的各种概念并通过强制规则维持视图和状态间的独立性，我们的代码将会变得更结构化且易维护。<br>改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation,可以追踪状态变化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">store.commit(&apos;increment&apos;)</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/vue详解/" data-id="cjxb3h9xk0014p3o432fdycsf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-dom事件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/17/dom事件/" class="article-date">
-  <time datetime="2019-06-17T07:47:28.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/html基础/">html基础</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/dom事件/">dom事件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>dom事件级别:dom0,dom2,dom3<br>dom0:    el.onclick = function(){}<br>dom2:    el.addEventListener(‘click’,function(){},false)<br>dom3:    el.addEventListener(‘keyup’,function(){},false)<br>dom1中没有定义事件相关的东西，所以说事件级别没有dom1，dom3中事件类型增加了许多</li>
-<li>dom事件模型：事件捕获（从上向下），事件冒泡</li>
-<li>dom事件流：捕获阶段、目标阶段、冒泡阶段</li>
-<li>dom事件捕获的具体流程<br>window-document-html(document.documentElement)-body-目标元素</li>
-<li>event对象的常见应用<br>e.preventDefault()、e.stopPropagation()、e.stopImmediatePropagation():事件响应优先级、e.target、e.currentTarget<br>事件委托(事件代理)的写法：$(ul).delegate(‘li’,click,fun);</li>
-<li>自定义事件<br>var eve = new Event(‘custome’);<br>或者var eve = new CustomEvent(‘custome’,obj);//可以接受参数<br>el.addEventListener(‘custome’,function(){<br> console.log(‘custome’);<br>},false);<br>el.dispatchEvent(eve);</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/dom事件/" data-id="cjxb3h9wq0004p3o4e0p2zh0u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li></ul>
 
     </footer>
   </div>
@@ -630,7 +655,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -641,7 +666,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/图片/">图片</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/打包工具/">打包工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -651,7 +676,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片分类/">图片分类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/广联达/">广联达</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/新东方相关资料搜集/">新东方相关资料搜集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比特大陆、云校/">比特大陆、云校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -661,7 +686,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片分类/" style="font-size: 10px;">图片分类</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/广联达/" style="font-size: 10px;">广联达</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/新东方相关资料搜集/" style="font-size: 10px;">新东方相关资料搜集</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/比特大陆、云校/" style="font-size: 10px;">比特大陆、云校</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -683,23 +708,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/21/面试/">面试</a>
+            <a href="/2019/06/26/面试预演－新东方/">面试预演－新东方</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
+            <a href="/2019/06/26/数据结构/">数据结构</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/normalize-css/">normalize.css</a>
+            <a href="/2019/06/26/面试-广联达/">面试-广联达</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
+            <a href="/2019/06/25/关于图片/">关于图片</a>
           </li>
         
           <li>
-            <a href="/2019/06/19/面试题/">面试题</a>
+            <a href="/2019/06/25/webpack原理分析/">webpack原理分析</a>
           </li>
         
       </ul>

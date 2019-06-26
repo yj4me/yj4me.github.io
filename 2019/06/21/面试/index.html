@@ -8,13 +8,14 @@
   <title>面试 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
+<meta name="keywords" content="比特大陆、云校">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试">
 <meta property="og:url" content="http://yoursite.com/2019/06/21/面试/index.html">
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-24T09:24:52.000Z">
+<meta property="og:updated_time" content="2019-06-26T06:58:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试">
 <meta name="twitter:description" content="比特大陆  自己实现v-modelv-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：text 和 textarea 元素使用 value 属性和 input 事件；checkbox 和 radio 使用 checked 属性和 change 事件；select 字段将 va">
@@ -94,7 +95,7 @@
 <ol>
 <li>自己实现v-model<br>v-model 本质上不过是语法糖。它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。<br>v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：<br>text 和 textarea 元素使用 value 属性和 input 事件；<br>checkbox 和 radio 使用 checked 属性和 change 事件；<br>select 字段将 value 作为 prop 并将 change 作为事件。</li>
 <li>vue与react的区别</li>
-<li>跨域解决方案(都问到了)</li>
+<li>跨域解决方案(都问到了)－<a href="/2019/06/11/面试基础知识总结/">通信类</a></li>
 <li>数组的哪些方法会改变原数组？<br>push()、pop()、unshift()、shift()、splice()<br>reverse():返回该数组，sort()返回该数组<br>不改变原数组的方法：concat()、join()、slice()、toString()</li>
 <li>说一下普通函数中的this与箭头函数中的this的区别？<br>箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或 new.target。这些函数表达式更适用于那些本来需要匿名函数的地方，并且它们不能用作构造函数。<br>箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this。<br>由于箭头函数没有自己的this指针，通过 call()或apply()方法调用一个函数时，他们的第一个参数会被忽略。<br>没有参数的函数应该写成一对圆括号：() =&gt; {函数声明}<br>当只有一个参数时，圆括号是可选的：单一参数 =&gt; {函数声明} 或 (单一参数) =&gt; {函数声明}<br>多参：(参数1, 参数2, …, 参数N) =&gt; 表达式（单一） 或 (参数1, 参数2, …, 参数N) =&gt; { 函数声明 }</li>
 <li>vuex详解</li>
@@ -126,28 +127,40 @@
 </li>
 </ol>
 <p>解析：直接打印window对象，内部本身有name:’’,这是window自带属性,如果绑定的不是name,假设是test，<br>person();//Window,undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = window.a = &quot;welcome to Here&quot;;</span><br><span class="line">function hello()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	function a()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	var a = &apos;soho&apos;;</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	let b = &apos;xxhashka&apos;;</span><br><span class="line">&#125;</span><br><span class="line">hello();</span><br></pre></td></tr></table></figure></p>
-<p>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>结果：f a(){}、soho、reference error</p>
+<p>结果：f a(){}、soho、reference error。<br>只声明不赋值之前，它是不会覆盖同名函数的，赋了值就变成一个具体值了，之后再去按方法调用的话会报错，提示不是一个方法<br>闭包解决for循环的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;4;i++)&#123;</span><br><span class="line">	(function(i)&#123;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">			console.log(i);</span><br><span class="line">		&#125;,0)</span><br><span class="line">	&#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ol start="6">
 <li>将字符串转成金额格式：num.toLocaleString();//12,345,678</li>
 <li><p>返回100以内的所有素数（只有1和它本身两个因数的自然数）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for(var i=1;i&lt;=100;i++)&#123;</span><br><span class="line">  for(var n=2;n&lt;=i;n++)&#123;</span><br><span class="line">	if(i%n==0&amp;&amp;i!=n)&#123;break;&#125;</span><br><span class="line">	else if(i==n)&#123;</span><br><span class="line">	  document.write(i+&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数组排序</p>
+<li><p>数组排序：冒泡排序、快排、希尔排序<br>冒泡排序：嵌套循环(如果前面的数字比后面大，交换位置(借助一个临时变量))<br>快速排序：借助中间某个值，小于它的放到左边数组，大于它的放到右边数组，递归调用</p>
 </li>
+<li>异步执行方案（一道算法题，让说出console.log的打印顺序）</li>
+<li>项目中的优化</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxb3h9xx001rp3o4zv5va1ix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/21/面试/" data-id="cjxdtflci001wkgo4v3njz2dz" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/比特大陆、云校/">比特大陆、云校</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/25/webpack原理分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          webpack原理分析
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/20/面试题系列三/" id="article-nav-older" class="article-nav-link-wrap">
@@ -168,7 +181,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/element-ui/">element-ui</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo使用说明/">hexo使用说明</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html基础/">html基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js基础/">js基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/图片/">图片</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/打包工具/">打包工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -178,7 +191,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/">dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git常用命令/">git常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html页面布局/">html页面布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery源码/">jQuery源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js创建对象的几种方式/">js创建对象的几种方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js面向对象/">js面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/less/">less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table表格/">table表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue源码/">vue源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue知识点讲解/">vue知识点讲解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片分类/">图片分类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/广联达/">广联达</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/新东方相关资料搜集/">新东方相关资料搜集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式重置/">样式重置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比特大陆、云校/">比特大陆、云校</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性问题/">浏览器兼容性问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用友政务面试-js/">用友政务面试 js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟dom/">虚拟dom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
     </div>
   </div>
 
@@ -188,7 +201,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/git常用命令/" style="font-size: 10px;">git常用命令</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/html页面布局/" style="font-size: 10px;">html页面布局</a> <a href="/tags/jQuery源码/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/js创建对象的几种方式/" style="font-size: 10px;">js创建对象的几种方式</a> <a href="/tags/js面向对象/" style="font-size: 10px;">js面向对象</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/table表格/" style="font-size: 10px;">table表格</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue源码/" style="font-size: 10px;">vue源码</a> <a href="/tags/vue知识点讲解/" style="font-size: 10px;">vue知识点讲解</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片分类/" style="font-size: 10px;">图片分类</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/广联达/" style="font-size: 10px;">广联达</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/新东方相关资料搜集/" style="font-size: 10px;">新东方相关资料搜集</a> <a href="/tags/样式重置/" style="font-size: 10px;">样式重置</a> <a href="/tags/比特大陆、云校/" style="font-size: 10px;">比特大陆、云校</a> <a href="/tags/浏览器兼容性问题/" style="font-size: 10px;">浏览器兼容性问题</a> <a href="/tags/用友政务面试-js/" style="font-size: 10px;">用友政务面试 js</a> <a href="/tags/虚拟dom/" style="font-size: 10px;">虚拟dom</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -210,23 +223,23 @@
       <ul>
         
           <li>
-            <a href="/2019/06/21/面试/">面试</a>
+            <a href="/2019/06/26/面试预演－新东方/">面试预演－新东方</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/面试题系列三/">面试题系列三</a>
+            <a href="/2019/06/26/数据结构/">数据结构</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/normalize-css/">normalize.css</a>
+            <a href="/2019/06/26/面试-广联达/">面试-广联达</a>
           </li>
         
           <li>
-            <a href="/2019/06/20/面试题系列二/">面试题系列二</a>
+            <a href="/2019/06/25/关于图片/">关于图片</a>
           </li>
         
           <li>
-            <a href="/2019/06/19/面试题/">面试题</a>
+            <a href="/2019/06/25/webpack原理分析/">webpack原理分析</a>
           </li>
         
       </ul>
